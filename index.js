@@ -10,6 +10,7 @@ import SearchableMovieReviewsContainer from
 
 ReactDOM.render(
   <div className="app">
+    <h1>Movie Reviews!</h1>
     <LatestMovieReviewsContainer />
     <SearchableMovieReviewsContainer />
   </div>,
