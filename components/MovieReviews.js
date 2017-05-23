@@ -3,14 +3,15 @@ import React from 'react';
 
 const MovieReviews = ({ reviews }) => (
   <div className="review-list">
-    {reviews.map(({ headline, summary_short }, index) => {
-      return (
-      <div key={index} className="review">
-        <h1>{headline}</h1>
-        <p>{summary_short}</p>
-      </div>
-      );
-    })}
+    <ul>
+      {reviews.map(({ headline, summary_short }, index) => {
+        return (
+          <li key={index} className="review">
+            <strong>{headline}</strong> - {summary_short}
+          </li>
+        );
+      })}
+    </ul>
   </div>
 );
 
