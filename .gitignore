@@ -42,3 +42,6 @@ jspm_packages
 # Learn-specific
 .results.json
 bundle.js
+
+# Env Varibles
+.env
