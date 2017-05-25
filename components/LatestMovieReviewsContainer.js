@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-import 'whatwg-fetch'
+const { fetch } = require('whatwg-fetch')
 import MovieReviews from './MovieReviews'
 
 const NYT_API_KEY = 'fd55e4f22960412fb09b2b8c889c184c'
