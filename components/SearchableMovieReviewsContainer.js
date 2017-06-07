@@ -29,6 +29,8 @@ export default class SearchableMovieReviewsContainer extends React.Component {
             .then(res => this.setState({ reviews: res.results }));
     }
 
+
+
     render() {
         return (
             <div className="searchable-movie-reviews">
