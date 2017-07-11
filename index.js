@@ -1,12 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 
-import LatestMovieReviewsContainer from
+const React = require('react');
+const ReactDOM = require('react-dom');
+
+const LatestMovieReviewsContainer = require(
   './components/LatestMovieReviewsContainer'
-;
-import SearchableMovieReviewsContainer from
+);
+const SearchableMovieReviewsContainer = require(
   './components/SearchableMovieReviewsContainer'
-;
+);
 
 ReactDOM.render(
   <div className="app">
