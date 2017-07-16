@@ -1,9 +1,10 @@
 import React from 'react';
 
-const MovieReviews = ({reviews}) => {
+const MovieReviews = (props) => {
+  console.log(props)
     return (
       <div className="review-list">
-        <div className="review">{reviews}</div>
+        <div className="review"></div>
       </div>
     );
   }
