@@ -43,12 +43,11 @@ class LatestMovieReviewsContainer extends React.Component {
   }
 
   render() {
-    
-    const reviews = this.state.reviews.map((review, index) => <MovieReviews review={review.displayTitle} key={index} />);
 
     return (
-      <div className="latest-movie-reviews">{reviews}</div>
+      <div className="latest-movie-reviews"><MovieReviews reviews={this.state.reviews}/></div>
     );
+    
   }
 }
 

@@ -1,10 +1,15 @@
 import React from 'react';
 
 const MovieReviews = (props) => {
-  console.log(props)
+
+  const reviews = props.reviews.map((review, index) => {
+
+    return <div key={index} className="review"> {review.display_title},  {review.headline}</div>
+
+  })
     return (
       <div className="review-list">
-        <div className="review"></div>
+        {reviews}
       </div>
     );
   }
