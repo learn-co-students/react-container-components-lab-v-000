@@ -3,9 +3,7 @@ import React from 'react';
 const MovieReviews = ({reviews}) => {
     return (
       <div className="review-list">
-        <ul>
-          <li classNme="review"></li>
-        </ul>
+        <div className="review">{reviews}</div>
       </div>
     );
   }

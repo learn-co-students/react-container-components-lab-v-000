@@ -1,10 +1,7 @@
-// Code SearchableSearchableMovieReviewsContainerContainer Here
-
-import React from 'react';
-
-const NYT_API_KEY = 'e4407b9b99bf49dca641270c478891f3';
-// const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + this.state.searchTerm
-//             + `api-key=${NYT_API_KEY}`;
+import React, { Component } from 'react';
+import MovieReviews from './MovieReviews';
+import 'isomorphic-fetch';
+require('es6-promise').polyfill();
 
 class SearchableMovieReviewsContainer extends React.Component {
   constructor(props) {
@@ -12,26 +9,40 @@ class SearchableMovieReviewsContainer extends React.Component {
     
     this.state = {
       reviews: [],
-      searchTerm: null
+      searchTerm: "hello"
     };
   }
 
   fetchNews = () => {
-    // fetch(URL)
-    //   .then(function(response) {
-    //     if (response.status >= 400) {
-    //       throw new Error("Bad response from server");
-    //     }
-    //     return response.json();
-    //   })
+    fetch('https://api.nytimes.com/svc/movies/v2/reviews/search.jsonquery=' + this.state.searchTerm
+              + `?api-key=e4407b9b99bf49dca641270c478891f3`)
+      .then((response) => {
+        if (response.status >= 400) {
+          throw new Error("Bad response from server");
+        }
+        return response.json();
+      })
+      .then((reviews) => {
+        this.updateReviews(reviews.results)
+      });
+  }
+  
+  updateReviews= (reviews) => {
+    this.setState({
+      reviews: reviews
+    })
   }
 
+  componentWillMount() {
+    this.fetchNews()
+  }
   
   render() {
-    
+
+    const reviews = this.state.reviews.map((review, index) => <MovieReviews review={review.displayTitle} key={index} />);
 
     return (
-      <div className="searchable-movie-reviews"></div>
+      <div className="searchable-movie-reviews">{reviews}</div>
     );
   }
 }
