@@ -12,11 +12,10 @@ class SearchableMovieReviewsContainer extends Component {
     constructor(props){
         super(props);
 
-        this.state = {reviews: []}
+        this.state = {reviews: [], searchTerm: ""}
     }
-
     render(){
-        (
+        return (
             <div className="searchable-movie-reviews">
                 <MovieReviews reviews={this.state.reviews} />
             </div>
