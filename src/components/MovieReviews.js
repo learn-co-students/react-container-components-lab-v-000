@@ -4,10 +4,13 @@ import React from 'react';
 // Code MovieReviews Here
 // This is the presentational component
 
-export default class MovieReviews extends React.Component {
-	render(){
+const MovieReviews = ({reviews}) => {
 		return(
-		<p>This is a MovieReviews component</p>
+		<div>
+		  <p>This is a MovieReviews component:</p>
+		  {reviews.map((movie) => <p>{movie.display_title}</p>)}
+		</div>
 		)
-	}
 }
+
+export default MovieReviews
