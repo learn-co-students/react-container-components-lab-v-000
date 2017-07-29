@@ -7,7 +7,8 @@ import MovieReviews from './components/MovieReviews';
 
 ReactDOM.render(
   <div className="app">
-    <LatestMovieReviewsContainer />
+    <LatestMovieReviewsContainer className="latest-movie-reviews"/>
+    <SearchableMovieReviewsContainer />
   </div>,
   document.getElementById('root')
 );

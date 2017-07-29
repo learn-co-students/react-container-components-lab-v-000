@@ -14,28 +14,29 @@ export default class LatestMovieReviewsContainer extends React.Component {
 		super()
 
 		this.state = {
-			movieReviews: []
+			reviews: []
 		}
 	}
 
-	componentWillMount() {
-		fetch(URL)
-		  .then((response) => {
-		  	return response.json()
-		  })
-		  .then((movies) => {
-		  	this.setState({
-		  		movieReviews: movies.results
-		  	})
-		  	console.log(this.state)
-		  })
-	}
+   componentWillMount(){
+   	fetch(URL)
+   	  .then((response) => response.json()) 
+   	  .then((movies) => { 
+   	  	this.setState({reviews: movies.results})
+   	  })
+ 
+   }
 
 	render(){
 		return(
-			<MovieReviews reviews={this.state.movieReviews}/>
-			)
+			  <div className="latest-movie-reviews" >
+			    <MovieReviews reviews={this.state.reviews}>
+			    			    <p>This is LatestMovieReviewsContainer</p>			
+		        </MovieReviews>
+		      </div>
+		        )
 		}
 	
 }
+
 

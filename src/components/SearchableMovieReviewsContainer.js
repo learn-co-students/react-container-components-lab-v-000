@@ -7,8 +7,11 @@ import MovieReviews from './MovieReviews';
 
 export default class SearchableMovieReviewsContainer extends React.Component {
 	render(){
-				return(
-			<MovieReviews/>
-			)
+ 	  return(
+ 	  	<div>
+	      <p>This is SearchableMovieReviewsContainer</p>
+	      <MovieReviews />
+	    </div>
+	  )
 	}
 }
