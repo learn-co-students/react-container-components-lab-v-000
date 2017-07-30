@@ -6,12 +6,20 @@ import MovieReviews from './MovieReviews';
 // This is a Container component ( i.e. logic)
 
 export default class SearchableMovieReviewsContainer extends React.Component {
+	constructor(){
+		super()
+		this.state = {
+			searchTerm: "hello",
+			reviews: []
+		}
+	}
 	render(){
  	  return(
- 	  	<div>
+ 	  	<div className="searchable-movie-reviews">
 	      <p>This is SearchableMovieReviewsContainer</p>
-	      <MovieReviews />
+	      <MovieReviews reviews={this.state.reviews}/>
 	    </div>
 	  )
 	}
 }
+
