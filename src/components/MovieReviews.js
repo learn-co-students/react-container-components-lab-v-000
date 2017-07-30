@@ -4,14 +4,17 @@ import React from 'react';
 // Code MovieReviews Here
 // This is the presentational component
 
-const MovieReviews = (reviews) => {
-	debugger;
+const MovieReviews = (props) => {
+
+
+			  // remember to give key to .map 
+			  console.log("props in MovieReviews:", props)
 		return(
-		<div>
-		  <p>This is a MovieReviews component:</p>
-		  {reviews.map((movie) => <p>{movie.display_title}</p>)}
+		<div className="review">
+		  {props.reviews ? props.reviews.map(review => <p>{review.display_title}</p>): "loading..."}
 		</div>
 		)
 }
+
 
 export default MovieReviews

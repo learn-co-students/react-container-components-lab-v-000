@@ -18,16 +18,20 @@ export default class LatestMovieReviewsContainer extends React.Component {
 		}
 	}
 
-   componentWillMount(){
+   componentDidMount(){
    	fetch(URL)
-   	  .then((response) => response.json()) 
-   	  .then((movies) => { 
-   	  	this.setState({reviews: movies.results})
+   	  .then(response => response.json()) 
+   	  .then(movies => {
+   	  	console.log("this.state in didMount", this.state) 
+   	  	console.log("this in didMount", this) 
+   	  	this.setState({reviews: [...movies.results]})
+   	    console.log("this.state in didMount (after)", this.state) 
+   	  	console.log("this in didMount (after)", this) 
    	  })
- 
    }
 
 	render(){
+		console.log("State reviews in render:", this.state.reviews)
 		return(
 			  <div className="latest-movie-reviews" >
 			    <MovieReviews reviews={this.state.reviews}>
