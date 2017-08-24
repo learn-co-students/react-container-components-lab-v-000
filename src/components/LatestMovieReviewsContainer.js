@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'isomorphic-fetch';
 
 import MovieReviews from './MovieReviews';
@@ -19,7 +19,10 @@ export default class LatestMovieReviewsContainer extends React.Component {
   componentWillMount() {
     fetch(URL)
       .then(response => response.json())
-      .then((reviews => this.setState({ reviews: reviews.results })));
+      .then(reviews => {
+        console.log(reviews)
+        this.setState({ reviews: reviews.results })
+      });
   }
 
   render() {
