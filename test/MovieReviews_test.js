@@ -3,6 +3,8 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import MovieReviews from '../src/components/MovieReviews';
+import MovieReview from '../src/components/MovieReview';
+import MovieReviewList from '../src/components/MovieReviewList';
 import testReviews from './test-reviews';
 
 const Noop = (props) => { return <p>Noop</p> };

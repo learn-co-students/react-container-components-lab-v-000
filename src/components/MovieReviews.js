@@ -29,15 +29,7 @@ const MovieReviewList = ({movieReviews}) => {
 
 const MovieReviews = (props) =>{
     return (
-      <div className="review-list">
-      {props.reviews.map((movieReview, index) =>
-        <div className="review" key={index}>
-          <p>{movieReview.display_title}</p>
-          <p>{movieReview.byline}</p>
-          <p>{movieReview.summary_short}</p>
-        </div>
-      )}
-      </div>
+        <MovieReviewList movieReviews={props.reviews} />
     );
 }
 
@@ -58,3 +50,19 @@ export default MovieReviews;
 
 
 // <MovieReviewList movieReviews={reviews} />
+
+
+
+// const MovieReviews = (props) =>{
+//   return (
+//     <div className="review-list">
+//     {props.reviews.map((movieReview, index) =>
+//       <div className="review" key={index}>
+//       <p>{movieReview.display_title}</p>
+//       <p>{movieReview.byline}</p>
+//       <p>{movieReview.summary_short}</p>
+//       </div>
+//     )}
+//     </div>
+//   );
+// }
