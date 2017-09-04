@@ -9,5 +9,6 @@ ReactDOM.render(
     <SearchableMovieReviewsContainer />
     <LatestMovieReviewsContainer />
   </div>,
+
   document.getElementById('root')
 );
