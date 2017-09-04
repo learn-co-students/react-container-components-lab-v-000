@@ -32,7 +32,6 @@ export default class SearchableMovieReviewsContainer extends React.Component {
     fetch(URL+`&query=${this.state.searchTerm}`)
     .then(resp => resp.json())
     .then((movieReviews) => {
-      console.log("search results: " + movieReviews.results);
       this.setState({
         reviews: movieReviews.results,
       });

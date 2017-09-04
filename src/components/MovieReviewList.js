@@ -1,5 +1,5 @@
 import React from 'react';
-
+import MovieReview from './MovieReview'
 const MovieReviewList = ({movieReviews}) => {
   return (
     <div>
