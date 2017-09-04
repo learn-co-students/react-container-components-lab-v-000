@@ -1,6 +1,7 @@
 import React from 'react';
 import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
+import testReviews from './test-reviews';
 
 const NYT_API_KEY = '28f872e13cd54fb8af6272f519915996';
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
@@ -39,3 +40,5 @@ export default class LatestMovieReviewsContainer extends React.Component {
     }
   }
 }
+
+// <MovieReviews reviews={this.state.reviews}/>
