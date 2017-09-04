@@ -8,30 +8,47 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
 export default class SearchableMovieReviewsContainer extends React.Component {
   constructor() {
     super();
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.runSearch = this.runSearch.bind(this)
     this.state = {
-      movieReviews: [],
-      query: "Scary"
+      reviews: [],
+      searchTerm: "Scary"
     }
   }
 
-  componentWillMount() {
-    // fetch away
-    const that = this;
-    // note to future self: for some reason `this` is no longer defined within the fetch call .thens
-    fetch(URL+`&query=${this.state.query}`)
-      .then(resp => resp.json())
-      .then((movieReviews) => {
-        console.log(movieReviews.results);
-        this.setState({
-          movieReviews: movieReviews.results,
-        }, ()=>{console.log(that.state.movieReviews)});
+  handleChange = (event) => {
+    this.setState({
+      searchTerm: event.target.value,
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.runSearch();
+  }
+
+  runSearch = () => {
+    fetch(URL+`&query=${this.state.searchTerm}`)
+    .then(resp => resp.json())
+    .then((movieReviews) => {
+      console.log("search results: " + movieReviews.results);
+      this.setState({
+        reviews: movieReviews.results,
       });
+    });
   }
 
   render() {
-    return null
-    // <div className="searchable-movie-reviews">
-    //   <MovieReviews movieReviews={this.state.movieReviews}/>
-    // </div>
+    return (
+      <div className="searchable-movie-reviews">
+        <h1>Search Results</h1>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" onChange={this.handleChange}/>
+          <input type="submit" value="Search"/>
+        </form>
+        <MovieReviews reviews={this.state.reviews}/>
+      </div>
+    );
   }
 }

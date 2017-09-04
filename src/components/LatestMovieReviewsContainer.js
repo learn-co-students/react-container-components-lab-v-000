@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
@@ -13,29 +13,29 @@ export default class LatestMovieReviewsContainer extends React.Component {
     super();
 
     this.state = {
-      movieReviews: [],
-      wtfFactor: "on"
+      reviews: [],
     }
   }
 
   componentWillMount() {
-    // this.state & this.setState are available here..
     fetch(URL)
       .then(resp => resp.json())
       .then((movieReviews) => {
-        // ..but now this is undefined
-        debugger;
-        this.setState({movieReviews: movieReviews.results});
+        this.setState({reviews: movieReviews.results}, ()=>{console.log(this.state.movieReviews)});
       });
   }
 
 
   render() {
-    return (
-      <div className="latest-movie-reviews">
-      <h1>Latest Reviewss</h1>
-      <MovieReviews movieReviews={this.state.movieReviews}/>
-      </div>
-    );
+    if (this.state.reviews && this.state.reviews !== []) {
+      return (
+        <div className="latest-movie-reviews">
+        <h1>Latest Reviewsss</h1>
+        <MovieReviews reviews={this.state.reviews}/>
+        </div>
+      );
+    } else {
+      return null
+    }
   }
 }
