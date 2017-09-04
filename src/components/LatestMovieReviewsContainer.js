@@ -12,24 +12,30 @@ export default class LatestMovieReviewsContainer extends React.Component {
   constructor() {
     super();
 
-    this.setState({
-      movieReviews: []
-    })
+    this.state = {
+      movieReviews: [],
+      wtfFactor: "on"
+    }
   }
 
   componentWillMount() {
-    // fetch away
+    // this.state & this.setState are available here..
     fetch(URL)
       .then(resp => resp.json())
-      .then(movieReviews => this.setState({movieReviews}));
+      .then((movieReviews) => {
+        // ..but now this is undefined
+        debugger;
+        this.setState({movieReviews: movieReviews.results});
+      });
   }
+
 
   render() {
     return (
       <div className="latest-movie-reviews">
+      <h1>Latest Reviewss</h1>
       <MovieReviews movieReviews={this.state.movieReviews}/>
       </div>
-
     );
   }
 }
