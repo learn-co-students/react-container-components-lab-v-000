@@ -23,7 +23,6 @@ const renderReview = ({
 }
 
 const MoviewReviews = ({reviews}) => {
-  console.log(reviews);
   return (
     <div className="review-list">
       {reviews.map(renderReview)}
