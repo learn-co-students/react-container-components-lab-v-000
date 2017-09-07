@@ -11,10 +11,13 @@ const renderReview = ({
   publication_date
 }) => {
   return (
-    <article className="review">
+    <article key={headline} className="review">
       <header>
-        <a className="review-link" href={link.url}><img src={multimedia.src} alt={byline} /> <br />
-        {headline}</a>
+        <a className="review-link" href={link.url}>
+          {multimedia ? <img src={multimedia.src} alt={byline} /> : ''}
+          <br />
+          {headline}
+        </a>
       </header>
       <p>Published by {byline} on {publication_date}</p>
       <p>{summary_short}</p>
