@@ -20,16 +20,20 @@ class LatestMovieReviewsContainer extends React.Component {
   };
 }
 
-componentWillMount() {
+componentDidMount() {
   fetch(URL)
     .then(response => response.json())
     .then((reviews => this.setState({ reviews })))
 };
 
+componentWillUpdate(nextProps){
+	<MovieReviews reviews={this.state.reviews}/>
+}
+
   render() {
     return (
       <div className='latest-movie-reviews'>
-      <MovieReviews reviews={this.state.reviews}/>
+      
       </div>
     )
   }

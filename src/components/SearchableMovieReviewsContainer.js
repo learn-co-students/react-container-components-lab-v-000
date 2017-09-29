@@ -16,7 +16,7 @@ class SearchableMovieReviewsContainer extends React.Component{
   };
 }
 
-componentWillMount() {
+componentDidMount() {
   fetch(URL)
     .then(response => response.json())
     .then((reviews => this.setState({ reviews })))

@@ -4,7 +4,7 @@ import React from 'react'
 class MovieReviews extends React.Component{
  	render () {
  	return(
-      <div className="review-list">
+      <div className="review-list"reviews={this.props.reviews}>
 		{this.props.reviews.map(review => <div class="review">{review.headline}</div>)}
       </div>
     )
