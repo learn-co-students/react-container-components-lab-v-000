@@ -19,12 +19,12 @@ class SearchableMovieReviewsContainer extends React.Component{
 componentWillMount() {
   fetch(URL)
     .then(response => response.json())
-    .then(reviews => this.setState({ reviews }))
+    .then((reviews => this.setState({ reviews })))
 };
 
   render() {
     return (
-      <div class="searchable-movie-reviews">
+      <div className="searchable-movie-reviews">
       <MovieReviews reviews={this.state.reviews}/>
       </div>
     )
