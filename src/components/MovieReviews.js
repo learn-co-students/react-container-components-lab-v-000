@@ -1,15 +1,14 @@
 // Code MovieReviews Here
 import React from 'react'
 
-class MovieReviews extends React.Component{
- 	render () {
- 	return(
-      <div className="review-list"reviews={this.props.reviews}>
-		{this.props.reviews.map(review => <div class="review">{review.headline}</div>)}
-      </div>
-    )
-  }
+const MovieReviews = ({ reviews }) =>
 
-};
+      <div className="review-list">
+				{reviews.map(review => <div className="review">{review.headline}</div>)}
+      </div>
+ 
+MovieReviews.defaultProps = {
+	reviews: []
+}
 
 export default MovieReviews;
