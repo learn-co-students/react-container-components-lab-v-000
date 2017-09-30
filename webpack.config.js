@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const buildDirectory = './dist/';
 var APP_DIR = path.resolve(__dirname, 'src/');
 module.exports = {
+
   entry: APP_DIR + '/index.js',
   devServer: {
     hot: true,
