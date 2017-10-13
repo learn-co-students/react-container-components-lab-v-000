@@ -16,7 +16,7 @@ class SearchableMovieReviewsContainer extends Component {
  
     this.state = {
       reviews: "",
-      searchTerms: ""
+      searchTerm: ""
     };
   }
  
