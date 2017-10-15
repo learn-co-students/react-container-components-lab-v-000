@@ -24,7 +24,7 @@ class SearchableMovieReviewsContainer extends Component {
   render() {
     return (
       <div className="searchable-movie-reviews">
-        {this.state.reviews}
+        hello{this.state.reviews}
       </div>
     )
   }

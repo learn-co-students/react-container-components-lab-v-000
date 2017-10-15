@@ -15,13 +15,18 @@ class LatestMovieReviewsContainer extends Component {
       reviews: ""
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    const currentReviews = this.state.reviews;
+    this.setState({
+      reviews: nextProps.reviews.concat(currentReviews)
+    });
+  }
  
 
   render() {
     return (
-      <div className="latest-movie-reviews">
-        {this.state.reviews}
-      </div>
+      <MovieReview />
     )
   }
 }
