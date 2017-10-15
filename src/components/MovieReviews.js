@@ -7,7 +7,8 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
             + `api-key=${NYT_API_KEY}`;
 
 
-const MovieReview = ({ review }) => {
+
+const Review = ({ review }) => {
   return (
     <div className="review">
       <h3>{review}</h3>
@@ -15,24 +16,15 @@ const MovieReview = ({ review }) => {
   )
 }
 
+const MovieReview = ({ reviews }) => (
+  <div className="review-list">
+    {reviews.map(movieReview => <Review review="movieReview.review" />)}
+  </div>
+);
 
-class MovieReviewsContainer extends Component {
-  //  constructor(props) {
-  //   super(props);
-  // }
 
-  render() {
-    return (
-      <div className="review-list">
-        {movieReviews.map(movieReview => <MovieReview review="movieReview.review" />)}
-      </div>
-    )
-  }
-}
-
-MovieReviewsContainer.defaultProps = {
-  reviews: ""
+MovieReview.defaultProps = {
+  reviews: "test"
 };
 
-
-export default MovieReviewsContainer;
+export default MovieReview;
