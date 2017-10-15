@@ -16,15 +16,11 @@ const Review = ({ review }) => {
   )
 }
 
-const MovieReview = ({ reviews }) => (
-  <div className="review-list">
-    {reviews.map(movieReview => <Review review="movieReview.review" />)}
-  </div>
-);
+const MovieReviews = ({ reviews }) => <div className="review-list">{reviews.map(Review)}</div>;
 
 
-MovieReview.defaultProps = {
-  reviews: "test"
+MovieReviews.defaultProps = {
+  reviews: []
 };
 
-export default MovieReview;
+export default MovieReviews;
