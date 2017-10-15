@@ -1,4 +1,3 @@
-// Code MovieReviews Here
 
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
@@ -9,17 +8,9 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
 
 // Code LatestMovieReviewsContainer Here
 
-
-
 class MovieReviewsContainer extends Component {
-   constructor(props) {
-    super(props);
- 
    
-  }
 
-
- 
   render() {
     return (
       <div className="review-list">
