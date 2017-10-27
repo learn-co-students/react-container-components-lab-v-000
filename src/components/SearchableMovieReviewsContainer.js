@@ -12,11 +12,9 @@ class SearchableMovieReviewsContainer extends React.Component {
   }
 
   search = (event) => {
-    this.setState = {
-      searchTerm: event.target.value
-    }
+
     const NYT_API_KEY = `f98593a095b44546bf4073744b540da0`;
-    const searchTerm = this.state.searchTerm;
+    const searchTerm = event.target.value;
     const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
                   + `query=${searchTerm}&`
                   + `api-key=${NYT_API_KEY}`;
