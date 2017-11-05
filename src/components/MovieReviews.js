@@ -13,11 +13,11 @@ MovieReviews.defaultProps = {
 	reviews: []
 }
 
-const generateReview = (review) =>  {
-	return (
-		<div className="review">
-			<h5>{review.display_title}</h5>
+const generateReview = (review, i) =>  {
 
+	return (
+		<div className="review" key={i}>
+			<h5>{review.display_title}</h5>
 		</div>
 	)
 }
