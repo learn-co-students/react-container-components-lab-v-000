@@ -2,39 +2,32 @@ import React from 'react';
 import MovieReviews from './MovieReviews';
 
 class LatestMovieReviewsContainer extends React.Component{
-    constructor(){
-      super();
+  constructor(props){
+    super(props);
 
-      this.state = {
-          reviews: []
-      }
+    this.state = {
+        reviews: []
     }
-    
-    componentWillMount(){
-      this.feactLatestReviews()
-    }
+  }
+  
+  componentWillMount(){
+    this.fetcReviews();
+  }
+  
+  fetcReviews = () => {
+    const NYTIMEKEY = '';
+    fetch(`https://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=${NYTIMEKEY}`)
+    .then(res => res.json())
+    .then(json => this.setState({reviews: json.results}))
+  }
 
-    feactLatestReviews = () => {
-      //do fetching then set the state with the new content
-
-
-
-
-      this.setState({
-        reviews: [
-                  {title: 'wow', url: 'www.wow.com'},
-                  {title: 'not good', url: 'www.wow.com'}
-                 ]
-      })
-    }
-
-    render(){
-      return(
-        <div className="latest-movie-reviews">
-          <MovieReviews reviews={this.state.reviews}/>
-        </div>  
-      );
-    }
+  render(){
+    return(
+      <div className="latest-movie-reviews">
+        <MovieReviews reviews={this.state.reviews}/>
+      </div>  
+    );
+  }
 }
 
 export default LatestMovieReviewsContainer;
