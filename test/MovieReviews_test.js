@@ -13,6 +13,7 @@ describe('<MovieReviews />', () => {
   let wrapper;
 
   beforeEach(() => {
+    debugger
     wrapper = !MovieReviews.prototype ?
       shallow(<Noop />) : shallow(<MovieReviews reviews={testReviews} />);
   });
