@@ -15,15 +15,16 @@ class SearchableMovieReviewsContainer extends React.Component{
 
     this.state = {
       reviews: [],
-      searchTerm: ''
+      searchTerm: 'test'
     };
   }
 
 
   componentWillMount() {
+    debugger;
     fetch(URL+this.state.searchTerm)
       .then(response => response.json())
-      .then(reviews => this.setState({ reviews }));
+      .then(reviews => this.setState({ reviews: reviews.results }));
   }
 
   render(){
