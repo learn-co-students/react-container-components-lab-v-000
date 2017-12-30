@@ -36,7 +36,7 @@ class LatestMovieReviews extends React.Component {
   render() {
     return (
       <div className="latest-movie-reviews">
-        <MovieReviews  />
+        <MovieReviews reviews={this.state.reviews}  />
       </div>
     );
   }
