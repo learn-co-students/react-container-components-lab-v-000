@@ -9,14 +9,14 @@ const Review = ({headline, summary, url}) => {
   );
 }
 
-class MovieReviews extends React.Component{
-  render(){
-    return(
-      <div className='review-list'>
-        {this.props.reviews.map(review => <Review headline="review.headline" summary="review.summary" url="review.url" />)}
-      </div>
-    );
-  }
+const MovieReviews = ({reviews}) => (
+    <div className='review-list'>
+      {reviews.map(review => <Review headline={review.headline} summary={review.summary_short} url={review.link.url} />)}
+    </div>
+)
+
+MovieReviews.defaultProps = {
+  reviews: []
 }
 
 export default MovieReviews;
