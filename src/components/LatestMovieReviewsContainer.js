@@ -27,6 +27,7 @@ class LatestMovieReviewsContainer extends React.Component{
   render(){
     return (
       <div className = "latest-movie-reviews">
+        <h3>All Recent Reviews</h3>
         <MovieReviews reviews={this.state.reviews} />
       </div>
     )
