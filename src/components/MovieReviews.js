@@ -1,7 +1,6 @@
 // Code MovieReviews Here
 import React, { Component } from 'react';
 
-
 const Review = ({display_title, headline, critics_pick, summary_short}) => {
   return (
     <div className='review' key={display_title}>
@@ -15,5 +14,9 @@ const Review = ({display_title, headline, critics_pick, summary_short}) => {
 
 
 const MovieReviews = ({reviews}) => <div className='review-list'>{reviews.map(Review)}</div>
+
+MovieReviews.defaultProps = {
+  reviews: []
+};
 
 export default MovieReviews;
