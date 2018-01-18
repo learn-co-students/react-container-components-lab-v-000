@@ -14,7 +14,7 @@ const Review = ({
     <div key={headline} className="review">
       <header>
         <h3>{display_title}</h3>
-        <img src={multimedia.src} /><br />
+        <img src={multimedia.src} alt="movie clip still"/><br />
         <a className="review-link" href={link.url}>{headline}</a><br/>
         <span className="author">{byline}</span>
         <p>Summary: {summary_short}</p><br />
