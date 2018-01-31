@@ -36,7 +36,7 @@ describe('<LatestMovieReviewsContainer />', () => {
     wrapper = !LatestMovieReviewsContainer.prototype ?
       mount(<Noop />) : mount(<LatestMovieReviewsContainer />);
     wrapper.setState({ reviews: testReviews });
-    wrapper.update();
+    wrapper.update(); 
     expect(wrapper.find('.review').length).to.equal(testReviews.length);
   });
 
