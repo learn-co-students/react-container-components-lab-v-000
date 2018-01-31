@@ -1,17 +1,18 @@
-import React from 'react'; 
+import React from 'react';  
 
-// const Review = ({ title }) => {
-//   return (
-//       <h3>{title}</h3>
-//   )
-// }
+const Review = ({title}) => {
+  return (
+    <div className="review">
+      <h3>{title}</h3>
+    </div>
+  )
+}
 
 
-
-const MovieReviews = props => 
+const MovieReviews = ({ reviews }) => (
   <div className="review-list"> 
-    {props.reviews.map(r => (<h3>{r.display_title}</h3>))}
-  </div>; 
+    {reviews.map(Review)}
+  </div> );
   
  MovieReviews.defaultProps = { 
      reviews: []
