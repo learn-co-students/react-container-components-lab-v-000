@@ -65,4 +65,4 @@ export default [
       "height": 140
     }
   }
-];
+]
