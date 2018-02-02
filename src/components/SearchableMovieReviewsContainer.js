@@ -40,9 +40,6 @@ class SearchableMovieReviewsContainer extends React.Component {
           reviews: reviews.results
         })
       })
-      .then(this.setState({
-        searchTerm: ""
-      }))
   }
 
     render() {
