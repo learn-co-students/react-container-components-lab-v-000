@@ -5,7 +5,6 @@ import 'isomorphic-fetch';
 
 // https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=f98593a095b44546bf4073744b540da0&query=coco
 const NYT_API_KEY = 'f98593a095b44546bf4073744b540da0';
-let URL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=" + NYT_API_KEY + "&query=";
 
 const searchResultsInBlue = {
   color: 'blue',
@@ -33,7 +32,7 @@ class SearchableMovieReviewsContainer extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const searchTerm = this.state.searchTerm;
-    URL += searchTerm;
+    URL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=" + NYT_API_KEY + "&query=" + searchTerm;
     fetch(URL)
       .then(response => response.json())
       .then(reviews => {
@@ -41,6 +40,9 @@ class SearchableMovieReviewsContainer extends React.Component {
           reviews: reviews.results
         })
       })
+      .then(this.setState({
+        searchTerm: ""
+      }))
   }
 
     render() {
