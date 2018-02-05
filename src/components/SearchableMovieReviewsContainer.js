@@ -1,4 +1,5 @@
 import React from 'react';
+import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
 const NYT_API_KEY = 'f98593a095b44546bf4073744b540da0';
@@ -24,7 +25,7 @@ class SearchableMovieReviewsContainer extends React.Component {
     event.preventDefault();
     fetch(URL.concat(this.state.searchTerm))
       .then(response => response.json())
-      .then(reviews => this.setState({reviews}));
+      .then(reviews => this.setState({reviews: reviews.results}));
   }
 
   render() {
@@ -34,7 +35,7 @@ class SearchableMovieReviewsContainer extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Search Reviews:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <input type="text" onChange={this.handleChange} />
           </label>
           <input type="submit" value="Submit" />
         </form>

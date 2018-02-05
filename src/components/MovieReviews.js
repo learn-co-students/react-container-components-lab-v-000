@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Review = ({title, summary}) => {
+const Review = ({headline, display_title, summary_short}) => {
   return(
-    <div className="review">
-      <h3>{title}</h3>
-      <p>{summary}</p>
+    <div key={headline} className="review">
+      <h3>{display_title}</h3>
+      <p>{summary_short}</p>
     </div>
   )
 }
