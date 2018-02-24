@@ -9,7 +9,6 @@ const Url = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
 
 
 class SearchableMovieReviewsContainer extends Component {
-
   constructor() {
    super();
 
@@ -40,17 +39,16 @@ class SearchableMovieReviewsContainer extends Component {
     })
   }
 
-
-render() {
-  return(
-    <div className= "searchable-movie-reviews">
-      <MovieReviews reviews={this.state.reviews}/>
-      <form onSubmit={this.handleSubmit}>
-        <input onChange={this.onSearchChange} ></input>
-        <button type="submit"> Submit </button>
-      </form>
-    </div>
-    )
-  }
+  render() {
+    return(
+      <div className= "searchable-movie-reviews">
+        <MovieReviews reviews={this.state.reviews}/>
+        <form onSubmit={this.handleSubmit}>
+          <input onChange={this.onSearchChange} ></input>
+          <button type="submit"> Submit </button>
+        </form>
+      </div>
+      )
+    }
 }
 export default SearchableMovieReviewsContainer
