@@ -8,7 +8,6 @@ import testReviews from './test-reviews';
 Enzyme.configure({ adapter: new Adapter() })
 
 const Noop = (props) => { return <p>Noop</p> };
-
 describe('<LatestMovieReviewsContainer />', () => {
   let wrapper;
 
