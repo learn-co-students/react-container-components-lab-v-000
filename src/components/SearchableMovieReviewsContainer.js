@@ -1,1 +1,3 @@
-// Code SearchableMovieReviewsContainer Here
+class SearchableMovieReviewsContainer extends React.Components {
+
+}
