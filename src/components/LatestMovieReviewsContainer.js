@@ -20,7 +20,6 @@ class LatestMovieReviewsContainer extends React.Component {
     this.setState({reviews: reviews})
   }
 
-
   fetchReviews() {
     return fetch(URL).then(response=> {
       return response.json()

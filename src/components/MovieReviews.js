@@ -9,7 +9,7 @@ const Review = ({display_title, summary_short})=> {
 const MovieReviews = reviews=> {
   return (
     <ul className="review-list">
-      {reviews.map( review=> <Review display_title={review.display_title} summary_short={review.summary_short} /> )}
+      {reviews.map(review=> <Review display_title={review.display_title} summary_short={review.summary_short} /> )}
     </ul>
   )
 }
