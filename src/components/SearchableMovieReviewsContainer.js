@@ -10,21 +10,23 @@ class SearchableMovieReviewsContainer extends React.Component {
 		super();
 
 		this.state = {
-			searchTerm: 'test',
+			searchTerm: '',
     	    reviews: []
    		}
 	}
 
-	componentDidUpdate() {
-		this.setState({reviews: this.fetchReviews() });
+	componentDidMount() {
+		let reviews = this.fetchReviews();
 	}
 
 	fetchReviews() {
 	   	return fetch(URL + this.state.searchTerm).then(response=> {
-	   	   return response.json()
+	   	   response.json()
 	   	}).then(reviews=> {
-	  	    return reviews.results
-	  	});
+	  	    this.setState({reviews: reviews.results})
+	  	}).catch(err=> {
+     		return err;
+   		});
     }
 
 	render() {
