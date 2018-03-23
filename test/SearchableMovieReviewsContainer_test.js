@@ -31,7 +31,7 @@ describe('<SearchableMovieReviewsContainer />', () => {
   it('should have top-level element with class "searchable-movie-reviews"', () => {
     expect(wrapper.hasClass('searchable-movie-reviews'), 'Missing top-level element with class "searchable-movie-reviews"').to.be.true;
   });
-
+  
   it('should render reviews after reviews state updated', () => {
     wrapper = !SearchableMovieReviewsContainer.prototype ?
       mount(<Noop />) : mount(<SearchableMovieReviewsContainer />);
@@ -39,4 +39,5 @@ describe('<SearchableMovieReviewsContainer />', () => {
     wrapper.update();
     expect(wrapper.find('.review').length).to.equal(testReviews.length);
   });
+
 });
