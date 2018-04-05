@@ -20,12 +20,3 @@ MovieReviews.defaultProps = {
 };
 
 export default MovieReviews;
-// class MovieReviews extends React.Component {
-//   render() {
-//     return (
-//       <div className="review-list">
-//         {this.props.reviews.map(review => <Review display_title={review.display_title} mpaa_rating={review.mpaa_rating} />)}
-//       </div>
-//     );
-//   }
-// }
