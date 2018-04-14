@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
-const Review = ({ headline, display_title }) => (
-  <div className="review" key={headline} >
+const Review = ({ headline, display_title, link }) => (
+  <div className="review mb-3" key={headline} >
     <small>
       {headline}
+    </small>
+    <br/>
+    <small>
+      <a href={link.url}>{link.suggested_link_text}</a>
     </small>
   </div>
 )

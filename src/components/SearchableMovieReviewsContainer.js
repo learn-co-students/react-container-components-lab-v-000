@@ -21,8 +21,12 @@ class SearchableMovieReviewsContainer extends Component {
   render() {
     return (
       <div className="searchable-movie-reviews" >
-        <input type="text" className="form-control" value={this.state.searchTerm} onChange={this.handleChange} />
-        <button className="btn btn-primary" onClick={this.handleSearch}>Search</button>
+        <div className="form-row mb-3" >
+          <div className="col-10" ><input type="text" className="form-control" value={this.state.searchTerm} onChange={this.handleChange} /></div>
+          <div className="col-2" >
+            <button className="btn btn-primary" onClick={this.handleSearch}>Search</button>
+          </div>
+        </div>
         <MovieReviews reviews={this.state.reviews} />
       </div>
     );
@@ -36,8 +40,9 @@ class SearchableMovieReviewsContainer extends Component {
 
   handleSearch(event) {
     event.preventDefault()
+    if (this.state.searchTerm === '') return
     let url = URL + `&query=${this.state.searchTerm}`
-    fetch(URL)
+    fetch(url)
       .then(resp => resp.json())
       .then(resp => {
         this.setState({
