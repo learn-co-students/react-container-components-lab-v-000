@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 const Review = ({ headline, display_title }) => (
   <div className="review" key={headline} >
-    <h3>
-      {display_title}
-    </h3>
+    <small>
+      {headline}
+    </small>
   </div>
 )
 
