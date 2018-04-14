@@ -28,16 +28,6 @@ class SearchableMovieReviewsContainer extends Component {
     );
   }
 
-  componentDidMount() {
-    fetch(URL)
-      .then(resp => resp.json())
-      .then(resp => {
-        this.setState({
-          reviews: resp.results
-        })
-      })
-  }
-
   handleChange(event) {
     this.setState({
       searchTerm: event.target.value
@@ -46,7 +36,14 @@ class SearchableMovieReviewsContainer extends Component {
 
   handleSearch(event) {
     event.preventDefault()
-
+    let url = URL + `&query=${this.state.searchTerm}`
+    fetch(URL)
+      .then(resp => resp.json())
+      .then(resp => {
+        this.setState({
+          reviews: resp.results
+        })
+      })
   }
 }
 
