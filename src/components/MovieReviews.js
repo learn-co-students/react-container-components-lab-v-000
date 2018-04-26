@@ -14,33 +14,15 @@ import React from 'react';
 //     }
 // }
 
-// const Book = ({ title, img_url }) => {
-//   return (
-//     <div className="book">
-//       <img src={img_url} />
-//       <h3>{title}</h3>
-//     </div>
-//   )
-// }
-
-// const Review = ({headline, url}) => {
-//     return (
-//         <div>
-//             {headline}
-//             {url}
-//         </div>
-//     )
-// }
-
 
 
 const MovieReviews = ({reviews}) => (
     <div className='review-list'>
         {reviews.map(review => (
-            <div className='review' >
-                <h1>{review.headline}</h1>
-                <p>{review.url} </p>
-            </div>
+                <div className='review' >
+                    <h1>{review.headline}</h1>
+                    <p>{review.url} </p>
+                </div>
             )
         
         )}
