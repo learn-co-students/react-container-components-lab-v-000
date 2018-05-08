@@ -35,12 +35,12 @@ export default class LatestMovieReviewsContainer extends Component {
       .then((response => this.setState({reviews: response.results})))
   }
 
-  displayResults = () => {
-    const {reviews} = this.state
-    if (reviews.length > 0) {
-      return <h3>Search Results:</h3>
-    }
-  }
+  // displayResults = () => {
+  //   const {reviews} = this.state
+  //   if (reviews.length > 0) {
+  //     return <h3>Search Results:</h3>
+  //   }
+  // }
 
   render() {
     return (
@@ -49,8 +49,8 @@ export default class LatestMovieReviewsContainer extends Component {
           Search: <input onChange={this.searchReviews}></input>
           <button type="submit">Submit</button>
         </form>
-        {this.displayResults()}
-          
+        {/* {this.displayResults()} */}
+        {this.state.reviews.length > 0 && <h3>Search Results:</h3>}
         <MovieReviews reviews={this.state.reviews}/>
       </div>
     )
