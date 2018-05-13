@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Review = ({ byline, headline, summary_short, publication_date, link }) => {
+const Review = ({ byline, headline, summary_short, publication_date }) => {
   // this pre-organizes the props that are passed in by MovieReviews
   return (
     <div key={headline} className="review">
