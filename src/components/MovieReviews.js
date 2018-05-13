@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 const Review = ({ byline, headline, summary_short, publication_date, link }) => {
   // this pre-organizes the props that are passed in by MovieReviews
   return (
-    <div className="review">
-      <h3>{headline}</h3>
-      <h5> Reviewer: {byline}</h5>
-      <p>{summary_short}</p>
+    <div key={headline} className="review">
+      <h3>Title: {headline}</h3>
+      <h5>Reviewer: {byline}</h5>
+      <p>Summary: {summary_short}</p>
       <p>Publish Date: {publication_date}</p>
     </div>
   )
