@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Review = ({ byline, headline, summary_short, publication_date, link }) => {
   // this pre-organizes the props that are passed in by MovieReviews
