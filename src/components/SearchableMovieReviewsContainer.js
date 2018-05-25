@@ -6,7 +6,7 @@ const NYT_API_KEY = 'f98593a095b44546bf4073744b540da0';
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
             + `api-key=${NYT_API_KEY}`;
 
-export default class SearchableMovieReviewsContainer extends React.Component {
+export default class SearchableMovieReviewsContainer extends Component {
   constructor() {
     super();
 
@@ -44,7 +44,7 @@ export default class SearchableMovieReviewsContainer extends React.Component {
       <div className="searchable-movie-reviews">
         <form className="searchReview" onSubmit={this.handleSubmit}>
           <label>
-            Search: 
+            Search:
             <input type='text' value={this.state.searchTerm} onChange={this.handleChange} />
           </label>
           <input type="submit" value="Submit" />
