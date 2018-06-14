@@ -3,18 +3,18 @@ import React from 'react'
 
 const Review = ({newReview}) => {
   return(
-  <p>{newReview}</p>
+  <p className='review'>{newReview}</p>
   )
 }
 
-const MovieReviews = ({reviews}) => {
-  return (
+const MovieReviews = ({reviews}) =>
   <div className='review-list'>
-    {reviews.map(review => <Review newReview="review"/>)}
-  </div>
-  )
-}
+    {reviews.map(Review)}
+  </div>;
 
-MovieReviews.defaultProps = {reviews: []}
 
-export default MovieReviews
+MovieReviews.defaultProps = {
+  reviews: []
+};
+
+export default MovieReviews;
