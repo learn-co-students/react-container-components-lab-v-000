@@ -2,7 +2,7 @@ import React from 'react';
 
 const Review = ({display_title, headline, byline, summary_short}) => {
   return (
-    <div className="review">
+    <div className="review" key={display_title}>
       <h3>{display_title}</h3>
       <h4>{headline} - {byline}</h4>
       <p>{summary_short}</p>
