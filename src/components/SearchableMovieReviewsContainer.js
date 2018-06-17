@@ -2,10 +2,6 @@ import React from 'react';
 import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews';
 
-// require('es6-promise').polyfill();
-// require('isomorphic-fetch');
-
-
 const NYT_API_KEY = '7a608b45df6043668bf426791ba211c4';
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?' + `api-key=${NYT_API_KEY}&query=`;
 
