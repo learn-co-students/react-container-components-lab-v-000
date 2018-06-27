@@ -6,3 +6,31 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
             + `api-key=${NYT_API_KEY}`;
 
 // Code LatestMovieReviewsContainer Here
+
+export default class LatestMovieReviewsContainer extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      reviews: []
+    }
+  }
+
+  const reviewList = this.state.reviews.map((review) => {
+    <li>{review}</li>
+  })
+
+  fetchReview = () => {
+    fetch(URL)
+    .then(reviews => this.setState({
+      reviews
+    }))
+  }
+
+  render () {
+    return (
+      <div className="latest-movie-reviews">
+        <ul>{reviewList}</ul>
+      </div>
+    )
+  }
+}
