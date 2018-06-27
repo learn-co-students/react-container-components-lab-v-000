@@ -15,9 +15,6 @@ export default class LatestMovieReviewsContainer extends React.Component {
     }
   }
 
-  const reviewList = this.state.reviews.map((review) => {
-    <li>{review}</li>
-  })
 
   fetchReview = () => {
     fetch(URL)
@@ -27,6 +24,10 @@ export default class LatestMovieReviewsContainer extends React.Component {
   }
 
   render () {
+    const reviewList = this.state.reviews.map((review) => {
+      <li>{review}</li>
+    })
+    
     return (
       <div className="latest-movie-reviews">
         <ul>{reviewList}</ul>
