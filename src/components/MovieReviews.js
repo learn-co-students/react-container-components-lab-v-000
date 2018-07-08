@@ -1,8 +1,7 @@
 import React from 'react'
 
 const MovieReviews = ({reviews}) => {
-  this.listMovies = () => {
-    console.log(reviews)
+  const listMovies = () => {
     return reviews.map(function(movieObj){
         return (
         <div className="review">
@@ -17,9 +16,12 @@ const MovieReviews = ({reviews}) => {
 
   return(
     <div className="review-list">
-      {this.listMovies()}
+      {listMovies()}
     </div>
   )
 }
 
+MovieReviews.defaultProps = {
+  reviews: []
+}
 export default MovieReviews
