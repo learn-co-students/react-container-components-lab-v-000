@@ -9,5 +9,5 @@ ReactDOM.render(
     <SearchableMovieReviewsContainer />
     <LatestMovieReviewsContainer />
   </div>,
-  document.getElementById('global')
+  document.getElementById('root')
 );
