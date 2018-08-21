@@ -8,7 +8,7 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
 
 class LatestMovieReviewsContainer extends Component {
   state = {
-    movies: []
+    reviews: []
   }
 
   componentDidMount() {
@@ -16,13 +16,13 @@ class LatestMovieReviewsContainer extends Component {
       .then(resp => resp.json())
       .then(json => {
         this.setState({
-          movies: json.results
+          reviews: json.results
         });
       });
   }
 
   renderMovieReviews = () => {
-    return this.state.movies.map(movie => {
+    return this.state.reviews.map(movie => {
       return <MovieReviews key={movie.display_title} review={movie} />
     });
   }
@@ -30,7 +30,7 @@ class LatestMovieReviewsContainer extends Component {
   render() {
     return (
       <div className="latest-movie-reviews">
-        {this.renderMovieReviews()}
+        <MovieReviews reviews={this.state.reviews} />
       </div>
     );
   }
