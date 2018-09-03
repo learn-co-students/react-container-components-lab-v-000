@@ -21,7 +21,6 @@ handleChange = e => {
 }
 
 handleSearch = () => {
- 
   fetch(URL + `${this.state.searchTerm}`)
   .then(res => res.json())
   .then(data => 
