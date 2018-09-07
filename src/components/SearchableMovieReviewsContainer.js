@@ -19,19 +19,13 @@ export default class SearchableMovieReviewsContainer extends Component {
                     <input type="text" value={this.state.searchTerm} onChange={this.handleChange}/>
                     <input type="submit" value="Search Movies"/>
                 </form>
+                { this.state.reviews.length > 0 && <h2>Movie Review By Search:</h2> }
+                <MovieReviews reviews={this.state.reviews}/>
             </div>
         )
     }
 
-    // fetchMovies = () => {
-    //     // debugger;
-    //     // event.preventDefault()
-    //     fetch(`${URL}&query=${this.state.searchTerm}`)
-    //     .then(resp => resp.json())
-    //     .then(results => {
-    //         debugger;
-    //     })
-    // }
+    
 
     
 
@@ -39,13 +33,12 @@ export default class SearchableMovieReviewsContainer extends Component {
         event.preventDefault()
         fetch(`${URL}&query=${this.state.searchTerm}`)
         .then(resp => resp.json())
-        .then(results => {
-            debugger;
-        })
+        .then(({results}) => this.setState({ reviews: results}))
+        .catch(error => console.log(error))
     }
 
 
-    handleChange = event => {
-        this.setState({searchTerm: event.target.value})
+    handleChange = ({target: {value}}) => {
+        this.setState({searchTerm: value})
     }
 }
