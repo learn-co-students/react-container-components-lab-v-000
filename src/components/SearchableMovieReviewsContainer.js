@@ -3,7 +3,7 @@ import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
 const NYT_API_KEY = 'f98593a095b44546bf4073744b540da0';
-const SEARCH_URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?' + `api-key=${NYT_API_KEY}`;
+const SEARCH_URL = `https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=${NYT_API_KEY}`;
 // Both container components should be class components that maintain state.
 // The SearchableMovieReviewsContainer should have a top-level wrapping element with class searchable-movie-reviews.
 
@@ -17,7 +17,7 @@ export default class SearchableMovieReviewsContainer extends Component {
   }
 
   fetchQuery = () => {
-    fetch('https://api.nytimes.com/svc/movies/v2/reviews/' + `query=${this.state.searchTerm}.json/api-key=${NYT_API_KEY}`)
+    fetch(`https://api.nytimes.com/svc/movies/v2/reviews/query=${this.state.searchTerm}.json/api-key=${NYT_API_KEY}`)
       .then(response => response.json() )
       .then(fetchedQueryReviews => {
         let updatedQueryReviews = fetchedQueryReviews.results.map(result => result.summary_short)
