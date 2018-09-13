@@ -14,7 +14,7 @@ class LatestMovieReviewsContainer extends Component {
     }
   }
   
-  fetchLatest = () => {
+  componentDidMount = () => {
     fetch(URL)
       .then(response => {
         if (response.status >= 400) {
@@ -24,9 +24,9 @@ class LatestMovieReviewsContainer extends Component {
       })
       
       .then(fetchedRecentReviews => {
-        let recentReviews = fetchedRecentReviews.results.map(result => result.summary_short)  
+        // let recentReviews = fetchedRecentReviews.results.map(result => result.summary_short)  
         this.setState({
-          reviews: recentReviews
+          reviews: fetchedRecentReviews
         })
       });
   }
@@ -36,8 +36,8 @@ class LatestMovieReviewsContainer extends Component {
     return(
       <div className={'latest-movie-reviews'} >
         <h1>Latest Reviews</h1>
-        {this.fetchLatest()}
-        <MovieReviews movieArray={this.state.reviews}/>      
+
+        <MovieReviews reviews={this.state.reviews}/>      
       </div>
     );
   }
