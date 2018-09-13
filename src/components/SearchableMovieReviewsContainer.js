@@ -3,7 +3,8 @@ import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
 const NYT_API_KEY = 'f98593a095b44546bf4073744b540da0';
-const SEARCH_URL = `https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=${NYT_API_KEY}`;
+const SEARCH_URL = `https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=${NYT_API_KEY}&query=`;
+
 // Both container components should be class components that maintain state.
 // The SearchableMovieReviewsContainer should have a top-level wrapping element with class searchable-movie-reviews.
 
@@ -17,12 +18,11 @@ export default class SearchableMovieReviewsContainer extends Component {
   }
 
   fetchQuery = () => {
-    fetch(`https://api.nytimes.com/svc/movies/v2/reviews/query=${this.state.searchTerm}.json/api-key=${NYT_API_KEY}`)
+    fetch(SEARCH_URL)
       .then(response => response.json() )
       .then(fetchedQueryReviews => {
-        let updatedQueryReviews = fetchedQueryReviews.results.map(result => result.summary_short)
         this.setState({
-          reviews: updatedQueryReviews
+          reviews: fetchedQueryReviews.results
         })
       });
   }
@@ -32,16 +32,6 @@ export default class SearchableMovieReviewsContainer extends Component {
     this.fetchQuery();
   }
 
-  componentDidMount() {
-    fetch(SEARCH_URL)
-    .then(response => response.json())
-    .then(queriedReviews => {
-      this.setState({
-        reviews: queriedReviews.results
-      })
-    })
-  }
-
   render() {
     return(
       <div className='searchable-movie-reviews'>      
@@ -49,7 +39,7 @@ export default class SearchableMovieReviewsContainer extends Component {
             <input type="text" name="searchTerm" /> 
             <input type="submit" name="submit" />
         </form>
-
+        <h3>Search Results</h3>
         <MovieReviews reviews={this.state.reviews}/>      
       </div>
     );
