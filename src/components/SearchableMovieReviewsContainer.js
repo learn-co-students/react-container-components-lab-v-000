@@ -24,7 +24,14 @@ export default class SearchableMovieReviewsContainer extends Component {
         this.setState({
           reviews: fetchedQueryReviews.results
         })
+        // console.log("search fired!")
       });
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      searchTerm: event.target.value
+    })
   }
   
   handleSubmit = (event) => {
@@ -36,7 +43,7 @@ export default class SearchableMovieReviewsContainer extends Component {
     return(
       <div className='searchable-movie-reviews'>      
         <form onSubmit={this.handleSubmit}>
-            <input type="text" name="searchTerm" /> 
+            <input type="text" name="searchTerm" onChange={this.handleChange}/> 
             <input type="submit" name="submit" />
         </form>
         <h2>Search Results</h2>
