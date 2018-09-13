@@ -18,7 +18,7 @@ export default class SearchableMovieReviewsContainer extends Component {
   }
 
   fetchQuery = () => {
-    fetch(SEARCH_URL)
+    fetch(SEARCH_URL + `${this.state.searchTerm}`)
       .then(response => response.json() )
       .then(fetchedQueryReviews => {
         this.setState({
@@ -39,8 +39,10 @@ export default class SearchableMovieReviewsContainer extends Component {
             <input type="text" name="searchTerm" /> 
             <input type="submit" name="submit" />
         </form>
-        <h3>Search Results</h3>
-        <MovieReviews reviews={this.state.reviews}/>      
+        <h2>Search Results</h2>
+        <MovieReviews reviews={this.state.reviews}/> 
+        {/* help separate latest from results, visually */}
+        <hr />     
       </div>
     );
   }
