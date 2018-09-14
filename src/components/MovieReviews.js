@@ -1,22 +1,17 @@
 // Code MovieReviews Here
 import React, {Component} from 'react'
 
-class MovieReviews extends Component {
-
-    shouldComponentUpdate(nextProps) {
-        // console.log(this.props.returnedMovieReviews )
-         if(this.props.checkState !== nextProps){
-             return true
-         } else {
-             return false
-         }
+const MovieReviews = props => {
+    debugger
+    let movieList;
+    if( props.searchedMovieReviews !== undefined && props.searchedMovieReviews.length ){
+        movieList = props.searchedMovieReviews
+    } else {
+        movieList = props.returnedMovieReviews
     }
 
-
-    render() {
-        return this.props.returnedMovieReviews
-            
-    }
+    return <div className='review-list'>{movieList}</div> 
 }
+
 
 export default MovieReviews;
