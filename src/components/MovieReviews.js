@@ -2,16 +2,17 @@
 import React, {Component} from 'react'
 
 const MovieReviews = props => {
-    debugger
-    let movieList;
-    if( props.searchedMovieReviews !== undefined && props.searchedMovieReviews.length ){
-        movieList = props.searchedMovieReviews
-    } else {
-        movieList = props.returnedMovieReviews
-    }
+    return (
+    <div className="review-list">
+      {props.reviews.map(review => <div><h1 key={review.id} className="review">{review.display_title}</h1> <div>{review.summary_short}</div></div>)} 
+    </div>
+    )
 
-    return <div className='review-list'>{movieList}</div> 
+   
 }
 
+MovieReviews.defaultProps = {
+    reviews: []
+}
 
 export default MovieReviews;

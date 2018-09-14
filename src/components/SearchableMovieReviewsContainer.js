@@ -25,30 +25,14 @@ class SearchableMovieReviewsContainer extends Component {
         })
      }
 
-    listResults(){
-        return this.state.reviews.map(movie => {
-            return (
-               
-                    <div key={movie.id} className='review'>
-                        <h3>{movie.display_title}</h3> 
-                        {movie.summary_short}
-                    </div>
-                
-                )
-            })
-        // }   
-          
-    }
+
 
     handleChange(e){
         this.setState({searchTerm: e.target.value})
     }
 
     render() {
-        let movieReviews;
-        if (this.state.reviews.length > 0 ){
-            movieReviews = this.listResults()
-        }
+  
         return (
                 <div className="searchable-movie-reviews">
                     <form onSubmit={this.handleSubmit.bind(this)}>
@@ -56,7 +40,7 @@ class SearchableMovieReviewsContainer extends Component {
                         <input type="submit"/>
                     </form>
                         { this.state.reviews.length > 0 && <h2>Movie Review By Search:</h2> }
-                        <MovieReviews  searchedMovieReviews={movieReviews} />    
+                        <MovieReviews  reviews={this.state.reviews} />    
                 </div>
         );
     }
