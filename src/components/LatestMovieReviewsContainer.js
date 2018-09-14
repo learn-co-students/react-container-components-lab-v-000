@@ -13,26 +13,32 @@ class LatestMovieReviewsContainer extends Component {
         componentDidMount() {
         fetch(URL)
             .then(results => results.json())
-            .then(reviews => this.setState({reviews: reviews.results}))
+            .then(reviews => {
+                let reviewsWithId = reviews.results.map((review, i) => {
+                    return  {...review, id: i}
+                })
+                this.setState({reviews: reviewsWithId})
+            })
             
     }
 
     listMovieReviews(){
         return this.state.reviews.map(movie => {
-        return (
-            <div >
-                <h3>{movie.display_title}</h3> 
-                {movie.summary_short}
-            </div>
-            )
-        })
+            return (
+                <div key={movie.id}>
+                    <h3>{movie.display_title}</h3> 
+                    {movie.summary_short}
+                </div>
+                )
+            })
     }
 
     render() {
-        // console.log(this.state.reviews);
         return (
             <div className='latest-movie-reviews'>
-                <MovieReviews returnedMovieReviews={this.listMovieReviews()} />
+                <h1>Latest Movie Reviews</h1>
+                <hr/>
+                <MovieReviews returnedMovieReviews={this.listMovieReviews()} checkState={this.state.reviews}/>
             </div>
             );
     }
