@@ -10,13 +10,14 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
 class LatestMovieReviewsContainer extends React.Component {
   constructor() {
     super()
-    
+
     this.state = {
       reviews: []
     }
   }
 
   componentDidMount() {
+    debugger
     fetch(URL)
       .then(function(response) {
         if (response.status >= 400) {
@@ -34,3 +35,5 @@ class LatestMovieReviewsContainer extends React.Component {
     )
   }
 }
+
+export default LatestMovieReviewsContainer;

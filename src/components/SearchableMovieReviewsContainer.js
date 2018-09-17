@@ -11,7 +11,8 @@ class SearchableMovieReviewsContainer extends React.Component {
   constructor() {
     super()
     this.state = {
-      reviews: []
+      reviews: [],
+      searchTerm: ''
     }
   }
 
@@ -28,8 +29,10 @@ class SearchableMovieReviewsContainer extends React.Component {
   render() {
     return(
       <div className='searchable-movie-reviews'>
-        <MovieReviews reviews={this.state.reviews} />
+        <MovieReviews reviews={this.state.reviews} searchTerm={this.state.searchTerm} />
       </div>
     )
   }
 }
+
+export default SearchableMovieReviewsContainer;

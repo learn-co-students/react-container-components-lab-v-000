@@ -1,13 +1,14 @@
+import React from 'react';
 // Code MovieReviews Here
-const Review = ({ display_title, summary_short}) => (
-  <div className="review">
-    <h4>{ display_title }</h4>
-    <p>{ summary_short }</p>
-  </div>
-)
+const MovieReviews = ({reviews}) => {
 
-const MovieReviews = ({ reviews }) => (
-  <div className="review-list">
-    { reviews.map(review => <Review display_title={review.display_title} summary_short={book.summary_short} />) }
-  </div>
-)
+    return (
+      <div className="review-list">
+        { reviews.map(review => <div className="review">
+          <h4>{review.display_title}</h4><br></br>
+          <p>{review.summary_short}</p>
+          </div>) }
+      </div>
+    )
+  }
+export default MovieReviews;
