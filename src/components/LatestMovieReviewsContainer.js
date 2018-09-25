@@ -1,9 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'isomorphic-fetch';
-import MovieReviews from './MovieReviews'
+import MovieReviews from './MovieReviews';
 
-const NYT_API_KEY = 'f98593a095b44546bf4073744b540da0';
+const NYT_API_KEY = 'ffdde605d8a4496982d56b813444b3c6';
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
             + `api-key=${NYT_API_KEY}`;
 
-// Code LatestMovieReviewsContainer Here
+class LatestMovieReviewsContainer extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      reviews: []
+    };
+  };
+
+  componentWillMount() {
+    fetch(URL)
+    .then(res => res.json())
+    .then(response => this.setState({ reviews: response.results }));
+  }
+
+  render(){
+    return(
+      <div className="latest-movie-reviews">
+      <MovieReviews reviews={this.state.reviews} />
+      </div>
+    )
+  }
+}
+
+export default LatestMovieReviewsContainer;
