@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
-const NYT_API_KEY = 'f98593a095b44546bf4073744b540da0';
-const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
-            + `api-key=${NYT_API_KEY}`;
+const NYT_API_KEY = '5d3791b7d4a34b5b865a71f531787dba';
+const URL = (term) => 'https://api.nytimes.com/svc/movies/v2/reviews/search.json' + `?query=${term}` + `?api-key=${NYT_API_KEY}`;
 
 // Code SearchableMovieReviewsContainer Here
 class SearchableMovieReviewsContainer extends React.Component {
@@ -17,9 +16,9 @@ class SearchableMovieReviewsContainer extends React.Component {
     };
   }
 
-  handleClick(term, event) {
+  handleSubmit(event) {
     event.preventDefault()
-    fetch(URL + `?query=` + term)
+    fetch(URL(this.state.searchTerm))
       .then(res => res.json())
       .then(resp => {
         let rev = resp.results
@@ -28,7 +27,6 @@ class SearchableMovieReviewsContainer extends React.Component {
   }
 
   handleTyping = (e) => {
-    debugger
     this.setState({
       searchTerm: e.target.value
     })
@@ -38,7 +36,7 @@ class SearchableMovieReviewsContainer extends React.Component {
   render() {
     return(
       <div className='searchable-movie-reviews'>
-      <form onSubmit={ (event) => this.handleClick(this.state.searchTerm, event) }>
+      <form onSubmit={ (event) => this.handleSubmit(event) }>
         <input type="text" value={ this.state.searchTerm } onChange={ (event) => this.handleTyping(event) }></input>
         <input type="submit" value="Submit"></input>
       </form>
