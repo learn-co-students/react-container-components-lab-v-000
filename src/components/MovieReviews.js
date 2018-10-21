@@ -11,4 +11,9 @@ const Review = ({headline}) => { return<div className="review"><p>{ headline }</
 const MovieReviews = ({ reviews }) => <div className="review-list">{reviews.map(Review)}</div>;
 
 //Which component should iterate over all the of the movie reviews?
+
+MovieReviews.defaultProps = {
+  reviews: []
+};
+
 export default MovieReviews
