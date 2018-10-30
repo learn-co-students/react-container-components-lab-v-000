@@ -26,15 +26,15 @@ class SearchableMovieReviewsContainer extends React.Component {
 
   updateSearchTerm = (event) => {
     this.setState({
-      searchTerm: event.target.children[0].value
+      searchTerm: event.target.value
     })
   }
-  
+
   render () {
     return (
       <div className="searchable-movie-reviews">
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <input type="textarea" onChange={event => this.updateSearchTerm(event)}></input>
+        <form onSubmit={this.handleSubmit}>
+          <input type="textarea" onChange={this.updateSearchTerm}></input>
           <input type="submit"></input>
         </form>
         <MovieReviews reviews={this.state.reviews}/>
