@@ -15,14 +15,20 @@ class LatestMovieReviewsContainer extends React.Component {
 	    };
 	  }
 
-    componentDidMount() {
-	    fetch('https://api.nytimes.com/svc/movies/v2/reviews/all.json?')
+    componentWillMount() {
+	    fetch(URL)
 	      .then(response => response.json())
-	      .then(reviews => this.setState({ reviews }))
+	      .then(data => this.setState({ reviews: data.results }))
 	  }
 
+
     render() {
-	    return <MovieReviews reviews={this.state.reviews} />
+      console.log(this.state.reviews)
+	    return  (
+        <div className="latest-movie-reviews">
+          <MovieReviews reviews={this.state.reviews} />
+        </div>
+      )
 	  }
 
 

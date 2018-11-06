@@ -1,16 +1,19 @@
 import React from 'react'
 
-const MovieReview = ({reviews}) => {
+const MovieReviews = ({reviews}) => {
+
+  let reviewFormat = reviews.map(review =>
+    <div className="review" key={review.id}><h3> {review.display_title} </h3>
+    <p>{review.summary_short}</p></div>
+  )
 
   return (
-
-    <div className="review-list" class="review-list">
+    <div className="review-list" >
       <ol>
-        { reviews.map(review => <li className="review" class="review">{review}</li>) }
+        {reviewFormat}
       </ol>
     </div>
   )
-
 }
 
-export default MovieReview
+export default MovieReviews
