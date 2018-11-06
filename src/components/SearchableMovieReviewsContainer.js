@@ -16,7 +16,7 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
   	    };
   	  }
 
-    handleSubmit = (data) => {
+    getReviews = (data) => {
         fetch(`https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=${NYT_API_KEY}query=${data.search}`)
   	      .then(response => response.json())
   	      .then(reviews => this.setState({ reviews }))
@@ -32,7 +32,7 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
       render() {
   	    return (
         <div className="latest-movie-reviews" >
-        <form onSubmit={this.handlingSubmit}>
+        <form onSubmit={this.getReviews}>
           <input type="text" id="search" value={this.state.search}
          onChange={this.handleChange}/>
          </form>
