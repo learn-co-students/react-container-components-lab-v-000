@@ -12,26 +12,27 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
   	    super()
   	    this.state = {
   	      reviews: [],
-          search: ""
+          searchTerm: ""
   	    };
   	  }
 
-    getReviews = (data) => {
-        fetch(`https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=${NYT_API_KEY}query=${data.search}`)
+    getReviews = (event) => {
+        event.preventDefault()
+        fetch(`https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=${NYT_API_KEY}&query=${this.state.searchTerm}`)
   	      .then(response => response.json())
-  	      .then(reviews => this.setState({ reviews }))
+  	      .then(data => this.setState({ reviews: data.results }))
   	  }
 
       handleChange = event => {
   	    event.persist()
   	    this.setState({
-  	        [event.target.id]: event.target.value
+  	        searchTerm: event.target.value
   	    })
     	}
 
       render() {
   	    return (
-        <div className="latest-movie-reviews" >
+        <div className="searchable-movie-reviews" >
         <form onSubmit={this.getReviews}>
           <input type="text" id="search" value={this.state.search}
          onChange={this.handleChange}/>
