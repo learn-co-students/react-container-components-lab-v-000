@@ -18,7 +18,7 @@ class LatestMovieReviewsContainer extends Component {
       .then(res => res.json())
       .then(json => {
         this.setState({
-          reviews: json.results.map(result => result.summary_short)
+          reviews: json.results
         })
       })
   }

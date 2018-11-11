@@ -5,7 +5,7 @@ import MovieReviews from './MovieReviews'
 const NYT_API_KEY = '8575e74579b6487792ec4d2943f5b9b8';
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
             + `api-key=${NYT_API_KEY}`
-            + 'query=';
+            + '&query=';
 
 // Code SearchableMovieReviewsContainer Here
 class SearchableMovieReviewsContainer extends Component {
@@ -19,7 +19,7 @@ class SearchableMovieReviewsContainer extends Component {
       .then(res => res.json())
       .then(json => {
         this.setState({
-          reviews: json.results.map(result => result.summary_short)
+          reviews: json.results
         })
       })
   }
