@@ -7,3 +7,6 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
             + `api-key=${NYT_API_KEY}`;
 
 // Code SearchableMovieReviewsContainer Here
+
+
+const queryReviews = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${searchTerm}'
