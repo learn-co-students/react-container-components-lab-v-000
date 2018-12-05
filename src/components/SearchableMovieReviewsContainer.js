@@ -15,18 +15,18 @@ export default class SearchableMovieReviewsContainer extends Component {
     }
   }
 
-  fetchMovies = () => {
+  fetchMovies = (event) => {
+    event.preventDefault()
     let URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
               + `api-key=${NYT_API_KEY}&query=${this.state.searchTerm}`;
 
-    
+
     fetch(URL)
     .then(res => res.json())
     .then(movies =>{
-      console.log(movies)
-      // this.setState({
-      //   reviews: movies.results
-      // })
+      this.setState({
+        reviews: movies.results
+      })
     })
     .catch(err => {
     })
