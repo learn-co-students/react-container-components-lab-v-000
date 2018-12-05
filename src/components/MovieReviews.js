@@ -5,11 +5,11 @@ const MovieReviews = ({reviews}) => {
     return (
         <section className='review-list'>
             {reviews.map(review => (
-                <ul key={review.headline} className='review'>
+                <fieldset key={review.headline} className='review'>
                     <h2>{review.display_title}</h2>
-                    <li>{review.byline}</li>
-                    <li>{review.summary_short}</li>
-                </ul>
+                    <h3>{review.byline}</h3>
+                    <h4>{review.summary_short}</h4>
+                </fieldset>
             ))}
             
         </section>

@@ -19,8 +19,8 @@ export default class SearchableMovieReviewsContainer extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(SEARCH+this.state.query)
-        fetch(SEARCH+this.state.query)
+        console.log(SEARCH+this.state.searchTerm)
+        fetch(SEARCH+this.state.searchTerm)
         .then(response => response.json())
         .then(data => this.setState({
             reviews: data.results
