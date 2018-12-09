@@ -38,10 +38,7 @@ class SearchableMovieReviewsContainer extends Component {
       <label>Search: </label>
       <input type='text' value={this.state.searchTerm} onChange={event => this.handleChange(event)} />
       </form>
-      <ul>
-      { this.state.reviews.length > 0 && <h2>I make the errors go away</h2> }
-        <MovieReviews reviews={ this.state.reviews } />
-        </ul>
+      <ul><MovieReviews reviews={ this.state.reviews } /></ul>
     </div>
   )}
 }
