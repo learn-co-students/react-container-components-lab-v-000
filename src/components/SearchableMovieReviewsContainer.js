@@ -29,10 +29,11 @@ export default class SearchableMovieReviewsContainer extends Component {
     render (){
         return(
         <div className="searchable-movie-reviews">
+            <h6>Search Results</h6>       
+                <form onSubmit={this.handleSubmit}>
+                    Search Movie Reviews: <input type="text" onChange={this.handleChange} value={this.state.searchTerm}/>
+                </form>
             <MovieReviews reviews={this.state.reviews}/>
-            <form onSubmit={this.handleSubmit}>
-                Search Movie Reviews: <input type="text" onChange={this.handleChange} value={this.state.searchTerm}/>
-            </form>
         </div>)
 
     }
