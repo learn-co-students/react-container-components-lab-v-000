@@ -3,7 +3,7 @@ import React from 'react'
 
 const Review = ({headline, byline, link, summary_short}) => {
   return (
-    <div key={headline}>
+    <div key={headline} className="review">
       <header>
         <a href={link.url}>{headline}</a>
         <h5>BY {byline}</h5>
