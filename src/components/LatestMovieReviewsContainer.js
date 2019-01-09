@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import 'isomorphic-fetch';
+import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
 const NYT_API_KEY = process.env.REACT_APP_API_KEY;
@@ -20,11 +20,11 @@ export default class LatestMovieReviewsContainer extends Component {
   componentDidMount() {
     fetch(URL)
     .then(response => response.json())
-    .then(JSON => {
+    .then(JSON =>
       this.setState({
         reviews: JSON.results
       })
-    })
+    )
   }
 
   render() {
