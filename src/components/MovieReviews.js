@@ -6,7 +6,7 @@ const MovieReviews = (props) =>
   <div className="review-list">
     <div>
     {props.reviews.map(movie =>
-      <div>
+      <div className="review">
         <h3> {movie.display_title} </h3>
          <img src={movie.multimedia.src} />
         <p> <strong> {movie.headline} </strong> </p>
