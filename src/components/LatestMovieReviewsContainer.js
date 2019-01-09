@@ -18,12 +18,12 @@ export default class LatestMovieReviewsContainer extends Component {
   }
 
   componentDidMount() {
-    return fetch(URL)
+    fetch(URL)
     .then(response => response.json())
     .then(JSON => {
       this.setState({
         reviews: JSON.results
-      }, console.log(this.state.movies))
+      })
     })
   }
 
@@ -31,9 +31,8 @@ export default class LatestMovieReviewsContainer extends Component {
     return (
       <div className="latest-movie-reviews">
         <h2>Latest Movie Reviews</h2>
-        <MovieReviews movies={this.state.reviews} testMessage={"this is a test message"} />
+        <MovieReviews reviews={this.state.reviews} />
         <br />
-        {URL}
       </div>
     )
 

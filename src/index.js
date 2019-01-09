@@ -10,9 +10,8 @@ require('isomorphic-fetch');
 
 ReactDOM.render(
   <div className="app">
+    <SearchableMovieReviewsContainer />
     <LatestMovieReviewsContainer />
   </div>,
   document.getElementById('root')
 );
-
-// <SearchableMovieReviewsContainer />
