@@ -42,7 +42,7 @@ export default class SearchableMovieReviewsContainer extends Component {
 						<input type="text" id="search" onChange={e => this.setState({searchTerm: e.target.value})} />
 						<input type="submit" value="Search" />
 					</form>
-				<MovieReviews reviews={this.state.reviews} />
+				<MovieReviews reviews={this.state.reviews} critics={this.isPick} />
 			</div>
 		)
 	}

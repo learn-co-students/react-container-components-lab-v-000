@@ -5,12 +5,10 @@ const MovieReviews = (props) =>
 		{props.reviews.map((movie, index) =>
 		<div className="review" key={index}>
 			<a href={movie.link.url}><h4>{movie.display_title}</h4></a>
-
+			<p>Critics' Pick? {props.critics(movie)}</p>
 			<p>{movie.summary_short}</p>
 		</div>
 		)}
 	</div>
 
 	export default MovieReviews
-
-				// <p>Critics' Pick? {props.critics(movie)}</p>

@@ -14,7 +14,7 @@ export default class LatestMovieReviewsContainer extends Component {
 	componentDidMount = () => {
 		fetch(URL)
 		.then(response => response.json())
-		.then(data => this.setState({ movies: data.results}))
+		.then(data => this.setState({ reviews: data.results}))
 		// .then(data => console.log(data.results))
 	}
 
@@ -30,7 +30,7 @@ export default class LatestMovieReviewsContainer extends Component {
 		return (
 			<div className="latest-movie-reviews">
 				<h2>Latest Movie Reviews</h2>
-				<MovieReviews reviews={this.state.reviews} />
+				<MovieReviews reviews={this.state.reviews} critics={this.isPick}/>
 			</div>
 		)
 	}
