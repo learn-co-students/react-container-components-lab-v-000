@@ -1,7 +1,7 @@
 import React from 'react'
 
 const MovieReviews = props => {
-	// console.log('props length: ', props.reviewList)
+	// console.log('Reviews: ', props.reviewList)
 	return (
 	   	<div className="review-list">
 	   		Hello Reviews!   		 		
