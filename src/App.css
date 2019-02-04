@@ -1,0 +1,26 @@
+.Card{
+    border: solid 1px #333;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 7px 7px 5px #eeedee;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 7px;
+    text-align: center;
+    background-color: #fffff8;
+}
+
+.review{
+    width: 100%;
+}
+
+.review-list{
+    width: 40%;
+    margin: auto;
+}
+
+.searchable-movie-reviews{
+    border-bottom: 5px solid black;
+    margin-bottom: 50px;
+
+}

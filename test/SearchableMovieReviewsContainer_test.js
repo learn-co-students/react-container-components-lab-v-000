@@ -4,6 +4,7 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import SearchableMovieReviewsContainer from '../src/components/SearchableMovieReviewsContainer';
 import testReviews from './test-reviews';
+import Search from '../src/components/Search'
 
 import { spy, stub, useFakeTimers } from 'sinon'
 
@@ -40,6 +41,9 @@ describe('<SearchableMovieReviewsContainer />', () => {
   });
 
   it('should fetch data from the New York Times API on form submission', () => {
+    
+    wrapper = !SearchableMovieReviewsContainer.prototype ?
+      mount(<Noop />) : mount(<SearchableMovieReviewsContainer />)
     let form = wrapper.find('form').first()
     form.simulate('submit', { preventDefault: () => {} })
     expect(fetchSpy.callCount > 0, "Fetch was not called").to.equal(true);

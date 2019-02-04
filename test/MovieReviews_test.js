@@ -1,6 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MovieReviews from '../src/components/MovieReviews';
 import testReviews from './test-reviews';
@@ -31,6 +31,8 @@ describe('<MovieReviews />', () => {
   });
 
   it('should render all the reviews', () => {
+    wrapper = !MovieReviews.prototype ?
+      mount(<Noop />) : mount(<MovieReviews reviews={testReviews} />);
     expect(wrapper.find('.review').length).to.equal(testReviews.length);
   });
 });
