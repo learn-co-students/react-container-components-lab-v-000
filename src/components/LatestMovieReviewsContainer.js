@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 import 'es6-promise/auto'
-import 'isomorphic-fetch';
+import 'isomorphic-fetch'
 import MovieReviews from './MovieReviews'
 
-const NYT_API_KEY = 'AoOucKUt3jpmSGw7FgqzD6nHaJ0oCDbz';
+const NYT_API_KEY = 'AoOucKUt3jpmSGw7FgqzD6nHaJ0oCDbz'
 
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
-            + `api-key=${NYT_API_KEY}`;
+            + `api-key=${NYT_API_KEY}`
 
 class LatestMovieReviewsContainer extends React.Component {
   constructor() {
@@ -14,27 +14,25 @@ class LatestMovieReviewsContainer extends React.Component {
  
     this.state = {
       reviews: []
-    };
+    }
   }
 
   componentDidMount() {
     fetch(URL)
       .then(function(response) {
         if (response.status >= 400) {
-          throw new Error("Bad response from server");
+          throw new Error("Bad response from server")
         }
-        return response.json();
+        return response.json()
       })
-      .then(data => this.setState({ reviews: [data.results] }))
+      .then(data => this.setState({ reviews: data.results }))
  
   }
  
   render() {
-      
     return(
       <div className="latest-movie-reviews">
-        Hello Latest!
-        <MovieReviews reviewList={this.state.reviews}/>
+        <MovieReviews  reviews={this.state.reviews}/>
       </div>  
     )
   }
