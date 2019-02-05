@@ -4,7 +4,6 @@ import 'isomorphic-fetch'
 import MovieReviews from './MovieReviews'
 
 const NYT_API_KEY = 'AoOucKUt3jpmSGw7FgqzD6nHaJ0oCDbz'
-
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
             + `api-key=${NYT_API_KEY}`
 
@@ -32,6 +31,7 @@ class LatestMovieReviewsContainer extends React.Component {
   render() {
     return(
       <div className="latest-movie-reviews">
+        Hello Latest!
         <MovieReviews  reviews={this.state.reviews}/>
       </div>  
     )

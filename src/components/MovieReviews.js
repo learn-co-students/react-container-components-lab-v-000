@@ -6,6 +6,7 @@ const MovieReviews = ({reviews}) => {
 
 	return (
 	   	<div className="review-list">
+	   		Hello Movie!
 	   		<h3>Movie Reviews (The New York Times)</h3> 
 	   		{reviewList}		
 	  	</div>
