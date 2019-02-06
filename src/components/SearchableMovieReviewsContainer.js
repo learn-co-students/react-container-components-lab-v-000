@@ -48,6 +48,8 @@ class SearchableMovieReviewsContainer extends React.Component {
 	    		<input id="searchTerm" name="searchTerm" type="text" onChange={this.handleChange} />
 				<input type="submit" value="Submit" />
 	  		</form>
+	  		<h3>Searched Movie Reviews</h3>
+	  		<MovieReviews reviews={this.state.reviews}/>
 	      </div>
 	    )
   }

@@ -6,6 +6,7 @@ const MovieReviews = ({reviews}) => {
 
 	return (
 	   	<div className="review-list"> 
+	   		<h3>Reviews</h3>
 	   		{reviewList}		
 	  	</div>
 	)	
