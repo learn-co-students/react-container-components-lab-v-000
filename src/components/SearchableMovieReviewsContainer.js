@@ -13,15 +13,16 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
 class SearchableMovieReviewsContainer extends React.Component {
   
 	constructor() {
-    super()
- 
-    this.state = {
-      reviews: [],
-      searchTerm: ''
-    }
+	    super()
+	 
+	    this.state = {
+	      reviews: [],
+	      searchTerm: ''
+	    }
 	}
 
-	componentDidMount() {
+	handleSubmit = event => {
+		event.preventDefault()
 	    fetch(URL)
 	      .then(function(response) {
 	        if (response.status >= 400) {
