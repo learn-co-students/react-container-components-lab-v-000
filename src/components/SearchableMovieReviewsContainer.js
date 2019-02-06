@@ -3,12 +3,8 @@ import 'es6-promise/auto'
 import 'isomorphic-fetch'
 import MovieReviews from './MovieReviews'
 
-const NYT_QUERY = 'daughter'
 const NYT_API_KEY = 'AoOucKUt3jpmSGw7FgqzD6nHaJ0oCDbz'
-const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
- + `query=${NYT_QUERY}`
- + '&'
- + `api-key=${NYT_API_KEY}`
+
 
 class SearchableMovieReviewsContainer extends React.Component {
   
@@ -23,6 +19,10 @@ class SearchableMovieReviewsContainer extends React.Component {
 
 	handleSubmit = event => {
 		event.preventDefault()
+		const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
+		 + `query=${this.state.searchTerm}`
+		 + '&'
+		 + `api-key=${NYT_API_KEY}`
 	    fetch(URL)
 	      .then(function(response) {
 	        if (response.status >= 400) {
@@ -35,21 +35,21 @@ class SearchableMovieReviewsContainer extends React.Component {
 
 	handleChange = event => {
 	  this.setState({
-	    [event.target.searchTerm]: event.target.value
+	    [event.target.name]: event.target.value
 	  })
 	}
 
 	render() {
-  	
-    return (
-       <div className="searchable-movie-reviews">
-        <h3>Search for a Movie Review</h3>
-        <form onSubmit={event => this.handleSubmit(event)}>
-    		<input type="text" name="searchTerm" onChange={event => this.handleChange(event)} value={this.state.searchTerm} />
-			<input type="submit" value="Submit" />
-  		</form>
-      </div>
-    )
+  		
+	    return (
+	       <div className="searchable-movie-reviews">
+	        <h3>Search for a Movie Review</h3>
+	        <form onSubmit={this.handleSubmit}>
+	    		<input id="searchTerm" name="searchTerm" type="text" onChange={this.handleChange} />
+				<input type="submit" value="Submit" />
+	  		</form>
+	      </div>
+	    )
   }
 
 }
