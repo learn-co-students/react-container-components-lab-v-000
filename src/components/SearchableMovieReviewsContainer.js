@@ -23,6 +23,7 @@ class SearchableMovieReviewsContainer extends React.Component {
 		 + `query=${this.state.searchTerm}`
 		 + '&'
 		 + `api-key=${NYT_API_KEY}`
+		 
 	    fetch(URL)
 	      .then(function(response) {
 	        if (response.status >= 400) {
