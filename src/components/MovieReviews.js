@@ -2,7 +2,7 @@ import React from 'react'
 
 const MovieReviews = ({reviews}) => {
 
-	const reviewList = reviews.map((r, index) => <li key={index}><a href={r.link.url} target="_blank">{r.link.suggested_link_text}</a></li>)	
+	const reviewList = reviews.map((r, index) => <li className="review" key={index}><a href={r.link.url} target="_blank">{r.link.suggested_link_text}</a></li>)	
 
 	return (
 	   	<div className="review-list"> 
