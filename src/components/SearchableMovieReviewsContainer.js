@@ -1,5 +1,4 @@
 import React from 'react'
-import 'es6-promise/auto'
 import 'isomorphic-fetch'
 import MovieReviews from './MovieReviews'
 
@@ -19,6 +18,7 @@ class SearchableMovieReviewsContainer extends React.Component {
 
 	handleSubmit = event => {
 		event.preventDefault()
+
 		const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
 		 + `query=${this.state.searchTerm}`
 		 + '&'

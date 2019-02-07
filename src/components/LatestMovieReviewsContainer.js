@@ -1,5 +1,4 @@
 import React from 'react'
-import 'es6-promise/auto'
 import 'isomorphic-fetch'
 import MovieReviews from './MovieReviews'
 
