@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
 // env
 const buildDirectory = './dist/';
@@ -35,5 +36,7 @@ module.exports = {
       },
     }],
   },
-  plugins: [],
+  plugins: [
+    new Dotenv()
+  ],
 };
