@@ -44,7 +44,7 @@ class SearchableMovieReviewsContainer extends React.Component {
   		
 	    return (
 	       <div className="searchable-movie-reviews">
-	        <h3>Search for a Movie Review</h3>
+	        <h3>Search for a Movie Review (Returns the latest reviews if blank)</h3>
 	        <form onSubmit={this.handleSubmit}>
 	    		<input id="searchTerm" name="searchTerm" type="text" onChange={this.handleChange} />
 				<input type="submit" value="Submit" />
@@ -53,8 +53,7 @@ class SearchableMovieReviewsContainer extends React.Component {
 	  		<MovieReviews reviews={this.state.reviews}/>
 	      </div>
 	    )
-  }
-
+  	}
 }
 
 export default SearchableMovieReviewsContainer

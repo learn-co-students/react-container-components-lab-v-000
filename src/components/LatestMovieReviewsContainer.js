@@ -35,7 +35,6 @@ class LatestMovieReviewsContainer extends React.Component {
       </div>  
     )
   }
-
 }
 
 export default LatestMovieReviewsContainer
