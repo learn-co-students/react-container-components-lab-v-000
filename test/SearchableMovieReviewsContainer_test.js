@@ -24,21 +24,25 @@ describe('<SearchableMovieReviewsContainer />', () => {
       shallow(<Noop />) : shallow(<SearchableMovieReviewsContainer />);
   });
 
+  // Done
   it('should have state', () => {
     const tryToGetState = () => { wrapper.state(); }
     expect(SearchableMovieReviewsContainer.prototype, 'Component is not yet defined.').to.exist;
     expect(tryToGetState).to.not.throw('Component should be class component.');
   });
 
+  // Done
   it('should have the state properties "reviews" and "searchTerm"', () => {
     expect(SearchableMovieReviewsContainer.prototype, 'Component is not yet defined.').to.exist;
     expect(wrapper.state()).to.have.all.keys('searchTerm', 'reviews');
   });
 
+  // Done
   it('should have top-level element with class "searchable-movie-reviews"', () => {
     expect(wrapper.hasClass('searchable-movie-reviews'), 'Missing top-level element with class "searchable-movie-reviews"').to.be.true;
   });
 
+  // Done
   it('should fetch data from the New York Times API on form submission', () => {
     let form = wrapper.find('form').first()
     form.simulate('submit', { preventDefault: () => {} })
@@ -46,6 +50,7 @@ describe('<SearchableMovieReviewsContainer />', () => {
     expect(fetchSpy.firstCall.lastArg, "Fetch should have the base URL 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'").to.include('https://api.nytimes.com/svc/movies/v2/reviews/search.json?')
   })
 
+  // Done
   it('should render reviews after reviews state updated', () => {
     wrapper = !SearchableMovieReviewsContainer.prototype ?
       mount(<Noop />) : mount(<SearchableMovieReviewsContainer />);

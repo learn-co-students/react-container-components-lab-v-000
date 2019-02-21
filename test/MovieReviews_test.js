@@ -17,6 +17,7 @@ describe('<MovieReviews />', () => {
       shallow(<Noop />) : shallow(<MovieReviews reviews={testReviews} />);
   });
 
+  // Done
   it('should be a stateless functional component', () => {
     const tryToGetState = () => { wrapper.state(); }
     expect(MovieReviews.prototype, 'Component is not yet defined.').to.exist;
@@ -26,10 +27,12 @@ describe('<MovieReviews />', () => {
     );
   });
 
+  // Done 
   it('should have a top-level component with class "review-list"', () => {
     expect(wrapper.hasClass('review-list')).to.be.true;
   });
 
+  // Done
   it('should render all the reviews', () => {
     expect(wrapper.find('.review').length).to.equal(testReviews.length);
   });
