@@ -3,8 +3,8 @@ import React from 'react'
 export default function MovieReviews(props) {
     console.log(props)
     return (
-        <div>
-            <ul className="review-list">
+        <div className="review-list">
+            <ul >
                 {props.reviews.map((review, index) => {
                     return <li key={index} className="review">{review.display_title}</li>
                 })}
