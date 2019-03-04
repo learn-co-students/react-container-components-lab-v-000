@@ -17,11 +17,13 @@ export default class SearchableMovieReviewsContainer extends Component {
             reviews: [],
             searchTerm: 'Styx'
         };
-
-        // this.setSearch = this.setSearch.bind(this);
     }
 
-    componentDidMount() {
+    setSearch = (e) => this.setState({searchTerm: e.target.value})
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
         fetch(URL + `&query=${this.state.searchTerm}`)
         .then(response => response.json())
         .then(data => {
@@ -32,11 +34,13 @@ export default class SearchableMovieReviewsContainer extends Component {
     render() {
         return (
             <div className="searchable-movie-reviews">
-                {/* <form id="form" onSubmit={this.setSearch}>
+                <form id="form" onSubmit={this.handleSubmit}>
                     <input id="search"
+                    type="text"
+                    onChange={this.setSearch}
                     />
                     <button type="submit">Submit</button>
-                </form> */}
+                </form>
                 <MovieReviews reviews={this.state.reviews} />
             </div>
         )
