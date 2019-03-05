@@ -7,13 +7,10 @@ const URL = `https://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=${NY
             
 
 class LatestMovieReviewsContainer extends Component {
-  constructor() {
-    super();
 
-    this.state = {
+    state = {
       reviews: []
-    };
-  }
+  };
 
   componentDidMount() {
     fetch(URL)
