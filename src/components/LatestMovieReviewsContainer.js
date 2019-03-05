@@ -3,11 +3,10 @@ import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
 const NYT_API_KEY = 'C8HisK0Zi6CBtJLZueaA7OB8xvnfvKDm';
-const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=${NYT_API_KEY}`;
+const URL = `https://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=${NYT_API_KEY}`;
             
 
-// Code LatestMovieReviewsContainer Here
-class LatestMovieReviews extends Component {
+class LatestMovieReviewsContainer extends Component {
   constructor() {
     super();
 
@@ -19,7 +18,7 @@ class LatestMovieReviews extends Component {
   componentDidMount() {
     fetch(URL)
     .then(response => response.json())
-    .then(movieReviews => this.setState({ reviews: movieReviews.results }));
+    .then(res => this.setState({ reviews: res.results }));
   }
   render() {
     return (
