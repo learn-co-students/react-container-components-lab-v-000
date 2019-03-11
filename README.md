@@ -63,7 +63,7 @@ to the following URLs:
 * To query the search API: `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=<search-term>`
 
 In addition to making calls to these URLs, you will need to request an API key
-from [here](https://developer.nytimes.com/signup). Once you have the key, you
+from [here](https://developer.nytimes.com/accounts/create). Once you have the key, you
 will "sign" your requests by attaching the key to the URL like so:
 
 ```
