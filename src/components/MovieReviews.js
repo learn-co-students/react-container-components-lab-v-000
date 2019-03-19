@@ -4,6 +4,7 @@ const Review = ({
   headline,
   byline,
   link,
+  multimedia,
   summary_short
 }) => {
   return (
@@ -11,6 +12,7 @@ const Review = ({
     <div
       key={headline}
       className="review"
+
     >
       <header>
         <a
@@ -19,6 +21,8 @@ const Review = ({
         >
           {headline}
         </a>
+        <br/>
+        <img src={multimedia.src}></img>
         <br/>
         <span className="author">{byline}</span>
       </header>
