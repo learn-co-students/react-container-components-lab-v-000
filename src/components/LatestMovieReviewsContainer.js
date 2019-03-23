@@ -22,6 +22,8 @@ export default class LatestMovieReviewsContainer extends React.Component {
   }
  
   render() {
+    let movies = document.getElementsByClassName("review")
+    console.log(movies.length)
     return (
     	<div className="latest-movie-reviews">
     		<MovieReviews reviews={this.state.reviews} />
