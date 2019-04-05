@@ -65,7 +65,7 @@ to the following URLs:
 In addition to making calls to these URLs, you will need to request an API key
 from [here](https://developer.nytimes.com/signup). Once you have the key, you
 will "sign" your requests by attaching the key to the URL like so:
-
+              
 ```
 https://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=<your key here>
 ```
