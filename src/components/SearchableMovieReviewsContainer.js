@@ -9,11 +9,11 @@ const url = `https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=$
 class SearchableMovieReviewsContainer extends Component {
   state = {
     reviews: [],
-    query: ''
+    searchTerm: ''
   }
   fetchReviews = (event) => {
     event.preventDefault();
-    let query = this.state.query;
+    let query = this.state.searchTerm;
     fetch(url + `&query=${query}`)
     .then(response => response.json())
     .then(data => (
@@ -21,7 +21,7 @@ class SearchableMovieReviewsContainer extends Component {
     );
   }
   handleChange = (event) => (
-    this.setState({query: event.target.value})
+    this.setState({searchTerm: event.target.value})
   )
   componentDidMount() {
   }
@@ -29,7 +29,7 @@ class SearchableMovieReviewsContainer extends Component {
     return (
       <div className='searchable-movie-reviews'>
         <form onSubmit={this.fetchReviews}>
-          <input type='text' value={this.state.query} onChange={this.handleChange}/>
+          <input type='text' value={this.state.searchTerm} onChange={this.handleChange}/>
         </form>
         <MovieReviews reviews={this.state.reviews}/>
       </div>
