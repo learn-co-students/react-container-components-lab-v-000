@@ -15,24 +15,22 @@ class LatestMovieReviewsContainer extends Component {
         reviews: []
       };
 
-    fetchReviews = () => {
-        fetch(URL)
-        .then(response => response.json())
-        .then((data) => {
-        this.setState ({reviews: data.results.map(review => (
-            {
-                title: review.display_title,
-                summary: review.summary_short,
-                link: review.link.url,
-                cta: review.link.suggested_link_text
-            })) 
-            })
-        })
-    }
-
     componentDidMount() {
-        this.fetchReviews()
-      }
+        // fetchReviews = () => {
+            fetch(URL)
+            .then(response => response.json())
+            .then((data) => {
+            this.setState ({reviews: data.results.map(review => (
+                {
+                    title: review.display_title,
+                    summary: review.summary_short,
+                    link: review.link.url,
+                    cta: review.link.suggested_link_text
+                })) 
+                })
+            })
+        // }
+    }
 
     render() {
         return (
