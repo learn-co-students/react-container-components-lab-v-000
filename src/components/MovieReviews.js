@@ -1,21 +1,26 @@
-// Code MovieReviews Here
-
-
-
-
 import React from 'react'
- 
-const MovieReviews = props => {
-  return (
-    <div className="review-list"> Hello from MovieReviews 
-        {props.reviews.map((review, index) => 
-            <div className="Card" key={index}> 
-                <h3>{ review.title }</h3>
-                <p>{ review.summary }</p>
-                <a href={review.link}>{review.cta}</a>
+
+const Review = ({ title, summary, link, cta }) => (
+    <div className="review">
+      <h3>{ title }</h3>
+      <p>{ summary }</p>
+      <a href={ link } target="_blank">{ cta }</a>
+    </div>
+  )
+   
+   
+  const MovieReviews = ({ reviews }) => (
+    <div className="review-list">
+       {reviews.map((review, index) => 
+            <div className="Card"  key={index}> 
+                <Review 
+                title={review.title} 
+                summary={review.summary}
+                link={review.link}
+                cta={review.cta}
+                />
             </div>)}
     </div>
   )
-}
- 
+
 export default MovieReviews

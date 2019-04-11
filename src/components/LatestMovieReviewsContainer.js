@@ -37,7 +37,6 @@ class LatestMovieReviewsContainer extends Component {
     render() {
         return (
             <div className="latest-movie-reviews"> 
-                Hello from LatestMovieReviewsContainer
                 <MovieReviews reviews={this.state.reviews}/>
             </div>
         );
