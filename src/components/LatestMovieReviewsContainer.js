@@ -15,12 +15,13 @@ class LatestMovieReviewsContainer extends Component {
   componentDidMount() {
     fetch(URL)
       .then(r=>r.json())
-      .then((data) => {this.setState({reviews: data.results})})
+      .then(data => this.setState({reviews: data.results}));
   }
 
   render(){
     return (
       <div className="latest-movie-reviews" >
+        <h2>The Latest Reviews:</h2>
         <MovieReviews reviews={this.state.reviews} />
       </div>
     )
