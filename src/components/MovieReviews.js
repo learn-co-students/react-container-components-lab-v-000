@@ -2,25 +2,28 @@
 import React from 'react';
 
 
-const Review = ({display_title, byline, opening_date, summary_short, headline})=> {
-  return (
-    <div key={headline}
-    className="review">
+  const Review = (review) => {
 
-    <h2> Title: {display_title} </h2>
-    <p> Byline: {byline} </p>
-    <p> Opening Date: {opening_date} </p>
-    <span> Short Summary: {summary_short} </span>
+  return (
+    <div key={review.headline}
+    className="review" >
+    <h2> Title: {review.display_title} </h2>
+    <p> Byline: {review.byline} </p>
+    <p> Opening Date: {review.opening_date} </p>
+    <p> ------------------------------------------------ </p>
+    <span> Short Summary: {review.summary_short} </span>
     <br/>
     </div>
   )
 };
 
 
-
 const MovieReviews = ({reviews}) => (
   <div className="review-list">
-  { reviews.map(Review)} </div>);
+    {reviews.map(Review)}
+ </div>);
+
+
 
 MovieReviews.defaultProps = {
   reviews: []

@@ -21,8 +21,8 @@ class LatestMovieReviewsContainer extends Component {
     fetch(URL)
       .then(response => response.json())
         .then(data => this.setState({
-                reviews: data.results})
-      )
+                reviews: data.results}
+      ))
     }
 
 
@@ -31,7 +31,6 @@ class LatestMovieReviewsContainer extends Component {
     return   <div className='latest-movie-reviews'>
               <h3> Latest Reviews </h3>
               <MovieReviews reviews={this.state.reviews}/>
-
      </div>
 
   }
