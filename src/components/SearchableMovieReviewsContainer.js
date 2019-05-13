@@ -30,8 +30,7 @@ class SearchableMovieReviewsContainer extends Component {
       fetch(BASE_URL.concat(this.state.searchTerm))
         .then(response => response.json())
           .then(data => this.setState({ reviews: data.results }
-          )
-        , ()=>console.log(this.state.reviews))
+          ))
     };
 
   render() {
@@ -46,7 +45,7 @@ class SearchableMovieReviewsContainer extends Component {
               <br/>
               <button type="submit">Submit </button>
           </form>
-          <MovieReviews reviews={this.state.reviews}/>
+          <MovieReviews reviews={this.state.reviews} />
         </div>
       )
     }
