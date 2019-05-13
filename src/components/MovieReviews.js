@@ -1,40 +1,39 @@
 // // Code MovieReviews Here
 import React from 'react'
 import { link } from 'fs'
-
- const Review = ({
+const Review = ({
   headline,
   byline,
   summary_short
 }) => {
   return (
-
+ 
     <div
       key={headline}
       className='review'
     >
       <header>
-          <a
-          className='review-link'
-          href={link.url}
+        <a
+            className='review-link'
+            href={link.url}
         >
-          {headline}
-        </a>
+            {headline}
+          </a>
         <br />
 
-        <span className= 'author'>{byline}</span>
+        <span className='author'>{byline}</span>
       </header>
       <blockquote>{summary_short}</blockquote>
     </div>
   )
- };
+}
 
 const MovieReviews = ({ reviews }) =>
-  <div className ='review-list'>{reviews.map(Review)}</div>
-   MovieReviews.defaultProps = {
+  <div className='review-list'>{reviews.map(Review)}</div>
+MovieReviews.defaultProps = {
   reviews: []
 }
-    
+
 
 
 

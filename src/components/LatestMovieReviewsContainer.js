@@ -26,7 +26,7 @@ class LatestMovieReviewsContainer extends Component {
 
        render() {
            return (
-               <div className="last-movie-reviews">
+               <div className="latest-movie-reviews">
                 <h2>The Lastest Reviews:</h2>
                 <MovieReviews reviews={this.state.reviews}/>
                </div>
