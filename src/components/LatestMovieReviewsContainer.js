@@ -21,16 +21,21 @@ class LatestMovieReviewsContainer extends Component {
         fetch(URL)
         .then(response => response.json())
         .then(response => this.setState({reviews: response.results }))
-        
+        //  aka the result we got out of the link #line 22 & 23
        }
 
        render() {
+           
            return (
                <div className="latest-movie-reviews">
                 <h2>The Lastest Reviews:</h2>
+                
                 <MovieReviews reviews={this.state.reviews}/>
+                
                </div>
+            // Note to self, reviews is now available all through out the app. 
            )
+           
         }
 }
 

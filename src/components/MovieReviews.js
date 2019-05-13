@@ -3,6 +3,7 @@ import React from 'react'
 import { link } from 'fs'
 
 const Review = ({
+  
   headline,
   byline,
   summary_short
@@ -10,9 +11,11 @@ const Review = ({
   return (
  
     <div
+    
       key={headline}
       className='review'
     >
+    
       <header>
         <a
             className='review-link'
@@ -31,8 +34,11 @@ const Review = ({
 
 const MovieReviews = ({ reviews }) =>
   <div className='review-list'>{reviews.map(Review)}</div>
-MovieReviews.defaultProps = {
+  // the Review Spits out headline: any; byline: any; summary_short: any; 
+  // Which is used up top
+  MovieReviews.defaultProps = {
   reviews: []
+  
 }
 
 

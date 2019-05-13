@@ -12,6 +12,7 @@ class  SearchableMovieReviewsContainer extends Component{
     
         state = {
             searchTerm: '', reviews: []
+            
         };
 
         handleSearchInputChange = event =>{
@@ -28,8 +29,10 @@ class  SearchableMovieReviewsContainer extends Component{
 
             
        render() {
+           
            return (
                <div className="searchable-movie-reviews">
+               {/* not in your form that two functions are called. */}
                <form onSubmit={this.handleSubmit}>
                     <label htmlFor="search-input">Search Movie Reviews</label>
                     <input
