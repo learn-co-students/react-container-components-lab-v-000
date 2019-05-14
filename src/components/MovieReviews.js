@@ -5,13 +5,14 @@ import React from 'react';
   const Review = (review) => {
 
   return (
+
     <div key={review.headline}
     className="review" >
     <h2> Title: {review.display_title} </h2>
     <p> Byline: {review.byline} </p>
-    <p> Opening Date: {review.opening_date} </p>
-    <p> ------------------------------------------------ </p>
+  <p> Opening Date: {review.opening_date} </p>
     <span> Short Summary: {review.summary_short} </span>
+    <p> ______________________________________________</p>  
     <br/>
     </div>
   )
