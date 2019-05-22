@@ -40,7 +40,6 @@ describe('<SearchableMovieReviewsContainer />', () => {
   });
 
 
-
   it('should render reviews after reviews state updated', () => {
     wrapper = !SearchableMovieReviewsContainer.prototype ?
       mount(<Noop />) : mount(<SearchableMovieReviewsContainer />);
