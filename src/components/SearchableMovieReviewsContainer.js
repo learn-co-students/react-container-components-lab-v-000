@@ -21,14 +21,16 @@ export default class SearchableMovieReviews extends Component {
 
   componentDidMount() {
     console.log(url)
-    fetch(url).then(results => {
-      return results.json();
-    }).then(data => {
-      this.setState({
-        reviews: data.results,
-      })
-    })
-  }
+    fetch(url).then(function(response) {
+		if (response.status >= 400) {
+			throw new Error("Bad response from server");
+		}
+		return response.json();
+	})
+	.then(function(stories) {
+		console.log(stories);
+	});
+}
 
   render() {
     return (
