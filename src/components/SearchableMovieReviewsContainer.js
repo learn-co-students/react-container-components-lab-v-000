@@ -16,7 +16,7 @@ class SearchableMovieReviewsContainer extends Component {
 	// }
 	handleSubmit = (e) => {
 		e.preventDefault();
-		fetch(URL + this.state.searchTerm + apiKey).then((res) => res.json()).then((reviews) => this.setState({ reviews }));
+		fetch(URL + this.state.searchTerm + apiKey).then((res) => res.json()).then((res) => this.setState({ reviews: res.results }));
 	}
 	render() {
 		// reviews" and "searchTerm
@@ -29,7 +29,7 @@ class SearchableMovieReviewsContainer extends Component {
 				<input type="submit" value="Submit" />
 			</form>
 
-			<MovieReviews reviews={this.state.reviews} />
+			<MovieReviews props={this.state} reviews={this.state.reviews} />
 		</div>;
 	}
 }
