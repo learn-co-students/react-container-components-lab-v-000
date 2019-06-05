@@ -16,7 +16,7 @@ class SearchableMovieReviewsContainer extends Component {
 	// }
 	handleSubmit = (e) => {
 		e.preventDefault();
-		fetch(URL + this.state.searchTerm + apiKey).then((res) => res.json()).then((res) => this.setState({ reviews: res.results }));
+		fetch(URL + this.state.searchTerm + "&" + apiKey).then((res) => res.json()).then((res) => this.setState({ reviews: res.results }));
 	}
 	render() {
 		// reviews" and "searchTerm

@@ -7,11 +7,9 @@ const MovieReviews = props => {
 
   return (
     <div className='review-list'>{
-      props.reviews.map(review => {
+      props.reviews && props.reviews.map(review => {
         return <div key={review.display_title} className="review">{review.display_title}</div>;
-      }
-      )
-    }</div>
+      })}</div>
   );
 };
 export default MovieReviews;
