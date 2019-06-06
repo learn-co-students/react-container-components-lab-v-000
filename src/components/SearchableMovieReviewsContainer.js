@@ -11,7 +11,9 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
 class SearchableMovieReviewsContainer extends Component {
   constructor() {
     super()
-    this.state = { reviews: [] }
+    this.state = { reviews: [],
+										searchTerm: ""
+								 }
   }
   
   fetchReviews = (url) => {
@@ -30,6 +32,7 @@ class SearchableMovieReviewsContainer extends Component {
   }
 
 	updateSearchParam = (param) => {
+		this.setState({searchTerm: param})
 		const url = URL + '&query=' + param
 		this.fetchReviews (url)
 	}
