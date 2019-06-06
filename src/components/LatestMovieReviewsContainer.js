@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
-const NYT_API_KEY = 'f98593a095b44546bf4073744b540da0';
+const NYT_API_KEY = 'wsmWKAAsy4Qwj3zR2h8LE9hegDReGAwl';
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
             + `api-key=${NYT_API_KEY}`;
 
@@ -10,10 +10,10 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
 class LatestMovieReviewsContainer extends Component {
   constructor() {
     super()
-		this.state = { mood: "happy" }
+		this.state = { reviews: [] }
   }
 	
-	handleClick = () => {
+	componentDidMount = () => {
 		fetch(URL)
 			.then(function(response) {
 				if (response.status >= 400) {
@@ -22,16 +22,16 @@ class LatestMovieReviewsContainer extends Component {
 				return response.json()
 			})
 			.then(function(movieJSON) {
-				console.log(movieJSON)
+				return movieJSON.results
 			})
+			.then(reviews => this.setState({reviews}))
 			.catch(console.log)
-		return null
 	}
 
   render () {
     return (
-			<div id="container" onClick={this.handleClick}>
-					Test - Click Here!
+			<div id="container">
+					{ < MovieReviews reviews={this.state.reviews} /> }
 			</div>
     )
   }
