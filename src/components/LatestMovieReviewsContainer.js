@@ -14,6 +14,13 @@ export default class LatestMovieReviewsContainer extends React.Component {
             reviews: []
         };
     }
+
+    componentDidMount() {
+        fetch(URL)
+          .then(response => response.json())
+          .then(data => console.log(data))
+      }
+
     render() {
         return (<div className="latest-movie-reviews">To do: render latest movie reviews here</div>)
     }
