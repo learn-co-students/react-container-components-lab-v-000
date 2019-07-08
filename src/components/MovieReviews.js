@@ -9,7 +9,7 @@ const Review = ({ headline, byline }) => (
    
   
   const MovieReviews = ({ reviews }) => (
-    <div className="latest-movie-reviews">
+    <div className="review-list">
       { reviews.map(Review) }
     </div>
   )
