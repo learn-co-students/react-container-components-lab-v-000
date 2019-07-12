@@ -12,9 +12,9 @@ const Review = ({headline, byline, link, summary_short}) => {
 }
 
 const MovieReviews = props => {
-  if (props.movies){
+  if (props.reviews){
     return (<div className="review-list">
-    {props.movies.map(Review)}
+    {props.reviews.map(Review)}
      </div>  )
   }else {
 
