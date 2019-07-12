@@ -21,7 +21,6 @@ class LatestMovieReviewsContainer extends Component {
   fetch(URL)
     .then(res => res.json())
     .then(movies => {
-      // console.log(movies)
       this.setState({reviews: movies.results})
     })
 }
@@ -30,17 +29,12 @@ class LatestMovieReviewsContainer extends Component {
   this.fetchMovies()
 }
 
-movieList = () => {
-  // return this.state.reviews.map(movie => <MovieReviews movies={movie.display_title} reviews={movie.summary_short}/>)
-}
-
 
 
 render() {
   return (
     <div className="latest-movie-reviews">
     <MovieReviews movies={this.state.reviews} />
-    <SearchableMovieReviewsContainer fetchMovies={this.fetchMovies} />
     </div>
   )
 }

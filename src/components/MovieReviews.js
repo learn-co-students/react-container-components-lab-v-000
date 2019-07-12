@@ -12,13 +12,18 @@ const Review = ({headline, byline, link, summary_short}) => {
 }
 
 const MovieReviews = props => {
-
+  if (props.movies){
+    return (<div className="review-list">
+    {props.movies.map(Review)}
+     </div>  )
+  }else {
 
   return (
-    <div className="review-list">
-      {props.movies && props.movies.map(Review)}
+   <div className="review-list">
+
     </div>
-  )
+    )
+  }
 }
 
 export default MovieReviews
