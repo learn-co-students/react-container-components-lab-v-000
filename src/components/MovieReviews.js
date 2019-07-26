@@ -1,25 +1,6 @@
-// import React, { Component } from 'react';
-
-// class MovieReviews extends Component {
-//    render(){
-//     return (
-//         <div className="review-list">
-
-//         </div>
-//     )
-//    } 
-// }
-// export default MovieReviews
-
-
 import React from 'react';
 
-const Review = ({
-  headline,
-  byline,
-  link,
-  summary_short
-}) => {
+const Review = ({ headline, byline, link, summary_short}) => {
   return (
 
     <div key={headline} className="review" >
@@ -32,8 +13,8 @@ const Review = ({
       </header>
       <blockquote>{summary_short}</blockquote>
     </div>
-  );
-};
+  )
+} 
 
 const MovieReviews = ({ reviews }) => <div className="review-list">{reviews.map(Review)}</div>
 
