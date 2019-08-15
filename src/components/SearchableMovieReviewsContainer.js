@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import 'isomorphic-fetch';
+import React, { Component } from 'react'
+import 'isomorphic-fetch'
 import MovieReviews from './MovieReviews'
 
 class SearchableMovieReviewsContainer extends Component {
@@ -16,7 +16,7 @@ class SearchableMovieReviewsContainer extends Component {
   fetchSearch = e => {
     e.preventDefault()
     const searchTerm = this.state.searchTerm
-    const NYT_API_KEY = 'OCJ5gxjUtQL5FNEsp34GTA04LrKgWvQM';
+    const NYT_API_KEY = 'OCJ5gxjUtQL5FNEsp34GTA04LrKgWvQM'
     const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
                 + `query=${searchTerm}`
                 + `&api-key=${NYT_API_KEY}`
@@ -37,8 +37,8 @@ class SearchableMovieReviewsContainer extends Component {
         </label>
         <input type="submit" value="Submit" />
       </form>
-    );
+    )
   }
 }
 
-export default SearchableMovieReviewsContainer;
+export default SearchableMovieReviewsContainer

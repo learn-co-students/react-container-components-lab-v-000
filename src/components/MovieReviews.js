@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Review = ({
   headline,
@@ -27,7 +27,7 @@ const Review = ({
   )
 }
 
-const MovieReviews = ({ reviews }) => <div className="review-list">{reviews.map(Review)}</div>;
+const MovieReviews = ({ reviews }) => <div className="review-list">{reviews.map(Review)}</div>
 
 MovieReviews.defaultProps = {
   reviews: []

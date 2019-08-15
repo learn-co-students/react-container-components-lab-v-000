@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import 'isomorphic-fetch';
+import React, { Component } from 'react'
+import 'isomorphic-fetch'
 import MovieReviews from './MovieReviews'
 
 const NYT_API_KEY = 'OCJ5gxjUtQL5FNEsp34GTA04LrKgWvQM';
@@ -34,4 +34,4 @@ class LatestMovieReviewsContainer extends Component {
 
 }
 
-export default LatestMovieReviewsContainer;
+export default LatestMovieReviewsContainer
