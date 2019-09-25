@@ -5,13 +5,19 @@ import React from 'react';
 
 const MovieReviews = (props) => {
   const reviews = props.movies.map((item, key) =>
-    <li className="review" key={key}>{item.display_title}</li>
+    <li className='review' key={key}><a href={item.link.url}>{item.display_title}</a>
+    {/* <h4>{item.headline}</h4> */}
+    {/* <p>{item.summary_short}</p> */}
+    </li>
   );
+  debugger;
   return(
-    <div className='review-list'>
-      <ul>{reviews}</ul>
-    </div>
+      <ul className='review-list'>{reviews}</ul>
   );
 }
+
+MovieReviews.defaultProps = {
+  movies: []
+};
 
 export default MovieReviews;
