@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Review = ({ title}) => (
+const Review = ({ headline }) => (
   <div className="review">
-    <h3>{ title }</h3>
+    <h3>{ headline }</h3>
   </div>
-)
 
+)
 export default Review;
