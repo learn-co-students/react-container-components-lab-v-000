@@ -5,7 +5,7 @@ import Review from './Review';
 
 const MovieReviews = ({ reviews }) => (
   <div className="review-list">
-    { reviews.map(review => <Review headline={review.headline} />) }
+    { reviews.map(Review) }
   </div>
 )
 
