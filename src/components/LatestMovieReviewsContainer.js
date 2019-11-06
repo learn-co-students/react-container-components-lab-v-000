@@ -15,7 +15,7 @@ class LatestMovieReviewsContainer extends React.Component {
 	
    render() {
    	return (
-	<div class= "latest-movie-reviews">
+	<div className= "latest-movie-reviews">
 	</div>
 	)
    }

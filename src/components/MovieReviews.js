@@ -5,7 +5,7 @@ const MovieReviews = props => {
 	console.log(props);
   
   return (
-    <div class= "review-list">
+    <div className= 'review-list'>
     </div>
   )
 
