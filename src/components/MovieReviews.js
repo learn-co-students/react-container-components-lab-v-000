@@ -1,4 +1,4 @@
-// Code MovieReviews Here
+// Code MovieReviews Here, Presentation Component
 import React, { Component } from 'react';
 
 const MovieReviews = props => {
@@ -13,3 +13,4 @@ const MovieReviews = props => {
 }
 
 export default MovieReviews
+

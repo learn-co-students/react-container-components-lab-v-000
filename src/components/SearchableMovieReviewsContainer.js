@@ -1,3 +1,4 @@
+//containter component
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
@@ -9,22 +10,23 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
 // Code SearchableMovieReviewsContainer Here
 
 class SearcheableMovieReviewsContainer extends React.Component {
-
-	state = {
-      reviews: "", 
-      searchTerm: ""
-  }
+    constructor(props) {
+    super(props);
+    this.state = {reviews: '',
+                  searchTerm: ''
+        };
+     }
 	
    render() {
    	return (
 	<div className= "searchable-movie-reviews">
-	  {this.state.reviews.map((person, id) => <h1 key={id}>{person.name}</h1>)}
+	  {this.state.reviews.map((review) => <h1>{review}</h1>)}
 	</div>
 	)
    }
 
    componentDidMount() {
-    fetch('https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=<search-term>')
+    fetch('https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${searchTerm}')
       .then(res => res.json())
       .then(({data}) => this.setState({ reviews: data }))
   }
