@@ -31,7 +31,7 @@ class SearcheableMovieReviewsContainer extends React.Component {
    render() {
    	return (
 	<div className= "searchable-movie-reviews">
-	  <MovieReviews reviews= {this.state.reviews} />
+	  <MovieReviews key= {this.state.searchTerm} reviews= {this.state.reviews} />
 	  <form onSubmit={this.eventHandler}>
        <label>
         <input type="text" name="input" value={this.state.searchTerm} onChange={this.handleInputChange}/>
