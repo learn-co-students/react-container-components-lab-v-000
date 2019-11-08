@@ -6,7 +6,7 @@ const MovieReviews = props => {
   
   return (
     <div className= 'review-list'>
-       {props.gifs.map(gif => <img key={gif.url} src={gif.url} alt="gif"/>)}
+       {props.reviews.map((review) => (<li className='review' >{review.display_title}</li>))}
     </div>
   )
 
