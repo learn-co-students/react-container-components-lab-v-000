@@ -1,12 +1,14 @@
 // Code MovieReviews Here, Presentation Component
-import React, { Component } from 'react';
+import React from 'react';
 
 const MovieReviews = props => {
-	console.log(props);
+
+  var reviews = Array.from(props.reviews);
   
   return (
-    <div className= 'review-list'>
-       {props.reviews.map((review) => (<li className='review' key={this.props.searchTerm}>{review.display_title}</li>))}
+    <div className= 'review-list'> 
+    <h1>Search Results</h1>  
+       {reviews.map((review) => (<li className='review' key={review.link.url}>{review.display_title}</li>))}<br/>
     </div>
   )
 

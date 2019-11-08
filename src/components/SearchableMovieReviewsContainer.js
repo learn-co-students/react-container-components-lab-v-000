@@ -1,5 +1,5 @@
 //containter component
-import React, { Component } from 'react';
+import React from 'react';
 import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
@@ -18,23 +18,39 @@ class SearcheableMovieReviewsContainer extends React.Component {
      }
 
    componentDidMount() {
-    fetch('https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${searchTerm}')
+    fetch(URL)
       .then(res => res.json())
       .then((response) => this.setState({ reviews: response }))
    }
 
-   eventHandler = event => {
-	event.preventDefault();
-	this.setState({ searchTerm: event.target.value});
+   eventHandler(e) {
+     e.preventDefault();
+     this.performSearch();
+   }
+
+
+   performSearch() {
+    fetch(`${URL}&query=${this.state.searchTerm}`)
+      .then(response => response.json())
+      .then(response => {
+        this.setState({
+          reviews: response.results,
+        });
+      })
+  }
+
+
+   handleInputChange(event) {
+      this.setState({searchTerm: event.target.value})
    }
 	
    render() {
    	return (
 	<div className= "searchable-movie-reviews">
-	  <MovieReviews key= {this.state.searchTerm} reviews= {this.state.reviews} />
-	  <form onSubmit={this.eventHandler}>
+	  <MovieReviews key={this.state.searchTerm} reviews={this.state.reviews} />
+	  <form onSubmit={(e)=> {this.eventHandler(e)}}>
        <label>
-        <input type="text" name="input" value={this.state.searchTerm} onChange={this.handleInputChange}/>
+        <input type="text" name="input" placeholder="Search..." value={this.state.searchTerm} onChange={(e)=> {this.handleInputChange(e)}}/>
         </label>
         <input type="submit" value="Submit" />
       </form>

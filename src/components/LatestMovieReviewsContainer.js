@@ -1,7 +1,6 @@
 //container component
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
-import MovieReviews from './MovieReviews'
 
 const NYT_API_KEY = 'dGpQ5OmGP2SgfvZimlpCUoF4iOag9qzZ';
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
@@ -15,18 +14,21 @@ class LatestMovieReviewsContainer extends Component {
      reviews: []
     };
   }
-	
+
    componentDidMount() {
-    fetch('https://api.nytimes.com/svc/movies/v2/reviews/all.json?')
+    fetch(URL)
       .then(res => res.json())
-      .then(response => this.setState({ reviews: response }));
+      .then(response => this.setState({ reviews: response.results }));
   }
 
-
    render() {
+
+   	var reviews = Array.from(this.state.reviews);
+
    	return (
 	<div className= "latest-movie-reviews">
-	   <MovieReviews reviews= {this.state.reviews} />
+	   <h1>Latest Movie Reviews</h1>
+	   {reviews.map((review) => (<li key={review.link.url}>{review.display_title}</li>))}
     </div>
 	)
    }
