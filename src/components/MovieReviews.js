@@ -1,12 +1,15 @@
 import React from 'react';
 
-const MovieReviews = props =>
+const MovieReviews = (props) => (
   <div className="review-list">
     <ul>
-      {/* return props.reviews.map((review, index) => {
-        return <li key={this.index}> </li>
-      }) */}
+      {
+        props.reviews.map((review) => {
+          return <li className="review" key={review.link.url}>{review.headline} </li>
+        })
+      }
     </ul>
   </div>
+)
 
 export default MovieReviews;
