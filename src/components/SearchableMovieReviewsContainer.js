@@ -16,11 +16,7 @@ export default class SearchableMovieReviewsContainer extends React.Component {
     }
   }
 
-  handleChange = event => {
-    this.setState({
-      searchTerm: event.target.value
-    })
-  }
+  handleChange = event => this.setState({ searchTerm: event.target.value })
 
   handleSubmit = () => {
     fetch(URL.concat(this.state.searchTerm))
@@ -32,11 +28,13 @@ export default class SearchableMovieReviewsContainer extends React.Component {
     return (
       <div className='searchable-movie-reviews'>
         <form onSubmit={this.handleSubmit}>
-          <label>Search: <input type='text' value={this.state.value} onChange={this.handleChange}/></label>
+          <label>Search Movie Reviews: </label>
+          <input type='text' value={this.state.value} onChange={this.handleChange}/>
           <input type='submit' value='Submit'/>
         </form>
 
-        <MovieReviews reviews={this.state.reviews}/>
+        <h2>Movie Review By Search:</h2>
+        <MovieReviews reviews={this.state.reviews} />
       </div>
     )
   }

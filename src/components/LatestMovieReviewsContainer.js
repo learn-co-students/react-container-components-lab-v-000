@@ -24,6 +24,7 @@ componentDidMount() {
   render() {
     return (
       <div className='latest-movie-reviews'>
+        <h2>The Latest Reviews: </h2>
         <MovieReviews reviews={this.state.reviews}/>
       </div>
     )
