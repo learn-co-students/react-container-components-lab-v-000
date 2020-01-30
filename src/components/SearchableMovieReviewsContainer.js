@@ -4,7 +4,7 @@ import MovieReviews from './MovieReviews'
 
 const NYT_API_KEY = 'dGpQ5OmGP2SgfvZimlpCUoF4iOag9qzZ';
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
-            + `api-key=${NYT_API_KEY}`;
+            + `api-key=${NYT_API_KEY}&query=`;
 
 // Code SearchableMovieReviewsContainer Here
 export default class SearchableMovieReviewsContainer extends React.Component {
@@ -16,14 +16,14 @@ export default class SearchableMovieReviewsContainer extends React.Component {
     }
   }
 
-  handleChange(event) {
+  handleChange = event => {
     this.setState({
       searchTerm: event.target.value
     })
   }
 
-  handleSubmit() {
-    fetch(URL)
+  handleSubmit = () => {
+    fetch(URL.concat(this.state.searchTerm))
     .then(response => response.json())
     .then(searchData => this.setState({ reviews: searchData.results }))
   }
@@ -35,7 +35,7 @@ export default class SearchableMovieReviewsContainer extends React.Component {
           <label>Search: <input type='text' value={this.state.value} onChange={this.handleChange}/></label>
           <input type='submit' value='Submit'/>
         </form>
-        
+
         <MovieReviews reviews={this.state.reviews}/>
       </div>
     )
