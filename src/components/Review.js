@@ -2,8 +2,8 @@ import React from 'react'
 
 const Review = ({display_title, headline, summary_short}) => 
     <li className="review">
-        <h2>{display_title}</h2>
-        <h3>{headline}</h3>
+        <h3>{display_title}</h3>
+        <h4>{headline}</h4>
         <p>{summary_short}</p>
         <br></br>
     </li>
