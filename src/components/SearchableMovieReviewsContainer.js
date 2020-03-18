@@ -44,8 +44,4 @@ class SearchableMovieReviewsContainer extends React.Component {
 
 }
 
-SearchableMovieReviewsContainer.defaultProps = {
-  reviews: []
-}
-
 export default SearchableMovieReviewsContainer;
