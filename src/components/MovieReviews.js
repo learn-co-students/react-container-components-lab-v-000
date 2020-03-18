@@ -1,1 +1,10 @@
-// Code MovieReviews Here
+import React from 'react';
+import Movie from './Movie';
+
+const MovieReviews = ({ movies }) => (
+  <div className="review-list">
+    { movies.map(movie => <Movie movieTitle={movie.display_title} movieCritic={movie.byline} reviewHeadline={movie.headline} reviewLink={movie.link.url}  />) }
+  </div>
+)
+
+export default MovieReviews;
