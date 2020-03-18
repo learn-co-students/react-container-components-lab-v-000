@@ -17,6 +17,10 @@ class SearchableMovieReviewsContainer extends React.Component {
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.reviews != [];
+  }
+
   onClickButton = event => {
     event.preventDefault();
     fetch(URL + this.state.searchTerm)
@@ -25,10 +29,10 @@ class SearchableMovieReviewsContainer extends React.Component {
   }
 
   handleChange = event => {
-   this.setState({
-     [event.target.name]: event.target.value
-   })
- }
+     this.setState({
+       [event.target.name]: event.target.value
+     })
+   }
 
   render() {
     return (
