@@ -17,10 +17,6 @@ class SearchableMovieReviewsContainer extends React.Component {
     };
   }
 
-  componentDidMount() {
-
-  }
-
   onClickButton = event => {
     event.preventDefault();
     fetch(URL + this.state.searchTerm)
@@ -46,6 +42,10 @@ class SearchableMovieReviewsContainer extends React.Component {
     )
   }
 
+}
+
+SearchableMovieReviewsContainer.defaultProps = {
+  reviews: []
 }
 
 export default SearchableMovieReviewsContainer;

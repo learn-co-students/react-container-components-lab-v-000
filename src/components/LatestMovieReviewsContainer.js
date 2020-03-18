@@ -32,4 +32,8 @@ class LatestMovieReviewsContainer extends React.Component {
 
 }
 
+LatestMovieReviewsContainer.defaultProps = {
+  reviews: []
+}
+
 export default LatestMovieReviewsContainer;
