@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
@@ -17,7 +17,7 @@ class LatestMovieReviewsContainer extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.reviews != [];
+    return this.state.reviews !== [];
   }
 
   componentDidMount() {
