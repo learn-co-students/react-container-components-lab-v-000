@@ -10,7 +10,10 @@ class LatestMovieReviewsContainer extends React.Component {
     state = { reviews: [] }
 
     componentDidMount() {
-        this.fetchReviews()
+        fetch(URL)
+            .then(response => response.json())
+            .then(data => this.setState({ reviews: data.results }))
+            .catch(error => alert(error.message))
     }
     
     render() {
@@ -20,13 +23,6 @@ class LatestMovieReviewsContainer extends React.Component {
                 <MovieReviews reviews={this.state.reviews} />
             </div>
         )
-    }
-
-    fetchReviews = () => {
-        return fetch(URL)
-            .then(response => response.json())
-            .then(data => this.setState({ reviews: data.results }))
-            .catch(error => alert(error.message))
     }
 }
 
