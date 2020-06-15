@@ -11,12 +11,13 @@ class SearchableMovieReviewsContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        	reviews:[]
+        	reviews: [],
+        	searchTerm: ''
         }
     }
 
     ComponentDidMount() {
-    	fetch('URL'+'query={props.query}')
+    	fetch('URL'+'query={props.searchTerm}')
     	.then(resp => resp.jason())
     	.then(data => this.setState({reviews: data.reviews}))
     	.catch(err => console.log(err))
@@ -24,7 +25,14 @@ class SearchableMovieReviewsContainer extends Component {
 
     render() {
         return (
-            <MovieReviews moviereviews={this.state.reviews}/>
+            <div className="searchable-movie-reviews">
+                <form onSubmit = {this.handleSubmit}>
+                    <input type="text" onChange={this.handleChange}></input>
+                    <button type="submit">Search</button>
+                </form>
+                { this.state.reviews.length > 0 && <h2>Movie Review By Search:</h2> }
+                <MovieReviews reviews={ this.state.reviews } />
+            </div>
         );
     }
 }

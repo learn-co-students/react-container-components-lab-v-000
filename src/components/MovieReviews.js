@@ -5,7 +5,7 @@ const Review = ({ headline, byline, link, summary_short}) => {
         <div className="review">
 	        <a className="review-link" href={link.url}>{headline}</a>
 			   	
-			    <p>{ byline className='author'}</p>
+			    <p>{ byline }</p>
 			   
 			    <p>{ summary_short }</p>
 			  </div>
@@ -15,7 +15,7 @@ const Review = ({ headline, byline, link, summary_short}) => {
 const MovieReviews = ({ reviews }) => {
     return (
     	<div className="review-list">
-    		{ reviews.map(Review) />) }
+    		{ reviews.map(Review) }
   		</div>
         
     );
