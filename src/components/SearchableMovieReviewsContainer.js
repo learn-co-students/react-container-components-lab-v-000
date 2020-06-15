@@ -16,11 +16,18 @@ class SearchableMovieReviewsContainer extends Component {
         }
     }
 
-    ComponentDidMount() {
-    	fetch('URL'+'query={props.searchTerm}')
-    	.then(resp => resp.jason())
-    	.then(data => this.setState({reviews: data.reviews}))
-    	.catch(err => console.log(err))
+    handleSubmit = (event) => {
+        event.preventDefault();
+        fetch(URL.concat(this.state.searchTerm))
+            .then(response => response.json())
+            .then(data => this.setState({reviews : data.results}))
+        
+    }
+
+    handleChange = (event)=>{
+        this.setState({
+            searchTerm: event.target.value
+        })
     }
 
     render() {
