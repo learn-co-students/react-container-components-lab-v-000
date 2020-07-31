@@ -10,7 +10,9 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
 class SearchableMovieReviewsContainer extends Component {
   render() {
     return (
-      <div>Displaying the searched-for movie reviews.</div>
+      <div className="searchable-movie-reviews">
+        {/* <MovieReviews /> */}
+      </div>
     )
   }
 }
