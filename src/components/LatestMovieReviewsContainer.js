@@ -8,26 +8,20 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
 
 // Code LatestMovieReviewsContainer Here
 class LatestMovieReviewsContainer extends Component {
-  state = { 
-    copyright: "",
-    reviews: []
-  };
+  state = { reviews: [] };
 
   componentDidMount() {
     fetch(URL)
       .then(response => response.json())
       .then(
-        ({copyright, results}) => this.setState({
-          copyright: copyright,
-          reviews: results
-        })
+        ({ results }) => this.setState({ reviews: results })
       )
   }
 
   render() {
     return (
       <div className="latest-movie-reviews">
-        <p><strong>{this.state.copyright}</strong></p>
+        <h2>Latest Movie Reviews</h2>
         <MovieReviews reviews={this.state.reviews} />
       </div>
     )
