@@ -10,22 +10,22 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
         constructor() {
         super()
         
-        this.state = {
-            reviews: []
-        };
+            this.state = {
+                reviews: []
+            };
         }
         
         componentDidMount() {
         fetch(URL)
           .then(response => response.json())
-        //   .then(response => console.log(response.results))
-          .then(reviewData => this.setState({ reviews: reviewData.results }))
+          .then(reviewData => this.setState({ reviews: reviewData.results }));
         }
         
         render() {
             return (
                 <div className="latest-movie-reviews">
-                    {<MovieReviews movies={this.state.reviews} />}
+                    <h2>Latest Reviews:</h2>
+                    <MovieReviews reviews={this.state.reviews} />
                 </div>     
             )         
         }
