@@ -27,14 +27,17 @@ class LatestMovieReviewsContainer extends React.Component {
       .then(response => response.json())
       // .then(movieReviews => console.log(movieReviews))
       .then(movieReviews => this.setState({
-        reviews: movieReviews.reviews
+        reviews: movieReviews.results
       }))
   }
 
 
   render() {
+    // console.log("this.state.................", this.state)
     return(
       <div className="latest-movie-reviews">
+        2 hi from LatestMovieReviewsContainer
+
         <MovieReviews reviews={this.state.reviews} />
       </div>
 
