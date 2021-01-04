@@ -15,8 +15,8 @@ class SearchableMovieReviewsContainer extends Component {
 
   render() {
     return(
-      <div className="latest-movie-reviews">
-        <MovieReviews reviews={this.state.reviews} />
+      <div className="searchable-movie-reviews">
+        <MovieReviews reviews={ this.state.reviews } searchTerm={ this.state.searchTerm } />
       </div>)
   }
 }
