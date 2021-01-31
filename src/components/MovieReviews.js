@@ -9,7 +9,6 @@ const MovieReviews = props => {
         <li key={review.display_title}><Review className="review" review={review} /></li>
       )}
     </ul>
-
   </div>
 }
 

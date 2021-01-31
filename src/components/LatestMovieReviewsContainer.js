@@ -19,7 +19,9 @@ class LatestMovieReviewsContainer extends PureComponent {
   }
 
   render() {
-    return <div className="latest-movie-reviews"><h1>Reviews</h1><MovieReviews reviews={this.state.reviews} /></div>
+    return <div className="latest-movie-reviews">
+        <h2>All Reviews</h2><MovieReviews reviews={this.state.reviews} />
+      </div>
   }
 }
 
