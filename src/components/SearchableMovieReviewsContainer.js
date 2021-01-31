@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
-import Form from './Form';
 import MovieReviews from './MovieReviews';
 
 const NYT_API_KEY = 'EEYQ8MPQrsMfbYXAML1Fo4yyjbSxdIvl';
@@ -59,8 +58,9 @@ class SearchableMovieReviewsContainer extends Component {
             type="submit"
           />
         </form>
-
-        < MovieReviews reviews={ this.state.reviews } />
+        
+        { this.state.reviews != [] ?  < MovieReviews reviews={ this.state.reviews } /> : false }
+       
       </div>)
   }
 }
