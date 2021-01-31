@@ -1,11 +1,12 @@
 // Code MovieReviews Here
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import Review from './Review';
 
 const MovieReviews = props => {
   return <div className="review-list">
     <ul>
-      { props.reviews.map((review) =>
-        <li><strong>{ review.display_title }</strong> by { review.byline } -- link: <a href={ review.link.url }>{ review.link.url }</a></li>
+      {props.reviews.map((review) =>
+        <li key={review.display_title}><Review review={review} /></li>
       )}
     </ul>
 
