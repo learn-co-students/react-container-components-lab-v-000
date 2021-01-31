@@ -6,7 +6,7 @@ const MovieReviews = props => {
   return <div className="review-list">
     <ul>
       {props.reviews.map((review) =>
-        <li key={review.display_title}><Review review={review} /></li>
+        <li key={review.display_title}><Review className="review" review={review} /></li>
       )}
     </ul>
 
