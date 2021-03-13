@@ -7,3 +7,39 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
             + `api-key=${NYT_API_KEY}`;
 
 // Code SearchableMovieReviewsContainer Here
+
+export default class SearchableMovieReviewsContainer extends Component {
+  
+  constructor (props) {
+        super (props)
+        this.state = {
+            reviews: [],
+            searchTerm: ''
+        }
+    }
+
+handleSearch = (event) => {
+    event.preventDefault()
+    let search = this.state.searchTerm
+    let searchUrl = `https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=<${search}>`
+    fetch(searchUrl).then(r => r.json()).then(data => this.setState({reviews: data.results}))
+  }
+
+handleChange = (event) => {
+    this.setState({searchTerm: event.target.value})
+}
+
+render () {
+    return (
+      <div className="searchable-movie-reviews">
+        <h1>Searchable Movie Reviews</h1>
+        <form action="" onSubmit={this.handleSearch}>
+          <label htmlFor="">Search:</label>
+          <input type="text" value={this.state.searchTerm} onChange={this.handleChange}/>
+          <input type="submit" value='Search Reviews'/>
+        </form>
+        <MovieReviews reviews={this.state.reviews} />
+      </div>
+    );
+  }
+}
