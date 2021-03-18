@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
-import MovieReviews from './MovieReviews'
+import MovieReviews from './MovieReviews';
 
 const NYT_API_KEY = '7pC8d2iDRSyEeIuw3ROxJn8Gk329B80k';
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
@@ -48,7 +48,7 @@ export default class SearchableMovieReviewsContainer extends Component {
             <input name="searchTerm" type="text" onChange={this.onChange} value={this.state.searchTerm}/>
             <button name="submit" type="submit" onClick={() => this.handleClick}>Submit</button>
             </form>
-            <div className="earchable-movie-reviews"><MovieReviews reviews={this.state.reviews}/></div>
+            <div className="searchable-movie-reviews"><MovieReviews reviews={this.state.reviews}/></div>
         </div>)
         }
     }
