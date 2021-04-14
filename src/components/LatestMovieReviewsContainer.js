@@ -7,3 +7,22 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
             + `api-key=${NYT_API_KEY}`;
 
 // Code LatestMovieReviewsContainer Here
+
+class LatestMovieReviewsContainer extends Component {
+  state = {
+    reviews: null
+  }
+  componentDidMount() {
+    fetch(URL).then(resp=>resp.json()).then(data=> this.setState({reviews: data.results}))
+  }
+
+  render() {
+    return (
+      <div className="latest-movie-reviews">
+        {(this.state.reviews) ? <MovieReviews reviews={this.state.reviews} /> : <img src="https://i.imgur.com/dpBR607.jpg" alt="no" height="169px" width="169px" />}
+      </div>
+    );
+  }
+}
+
+export default LatestMovieReviewsContainer;
