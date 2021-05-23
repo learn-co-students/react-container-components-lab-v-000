@@ -1,8 +1,16 @@
 // Code MovieReviews Here
 import React from 'react'
-const MovieReviews = ({review})=>(
+const MovieReviews = ({reviews})=>(
     <div className="review-list">
-        <div className="review">Here comes the review</div>
+        {reviews.map((review,idx)=>{
+            return (
+            <div className="review" key={idx}>
+                <h3>{review.display_title}</h3>
+                <p>{review.summary_short}</p>
+            </div>
+            )
+        })}
+        
     </div>
 )
 export default MovieReviews;
