@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
-import MovieReviews from './MovieReviews'
+
+import MovieReviews from './MovieReviews';
 
 const NYT_API_KEY = 'A053gIUuCtdU5c9bTVceP7lNZyrcgmTu';
 const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
@@ -9,10 +10,10 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
 // Code LatestMovieReviewsContainer Here
 export default class LatestMovieReviewsContainer extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       reviews: []
-    }
+    };
   }
 
   componentDidMount() {
@@ -23,8 +24,8 @@ export default class LatestMovieReviewsContainer extends Component {
 
   render() {
     return (
-      <div>
-        <MovieReviews movies={this.state.movies} />
+      <div className="latest-movie-reviews">
+        <MovieReviews reviews={this.state.reviews} />
       </div>
     )
   }
